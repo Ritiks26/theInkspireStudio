@@ -1,0 +1,27 @@
+.work-container {
+  height: 100vh;
+  width: 100%;
+  background-color: crimson;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    color: rgb(255, 255, 255);
+  }
+}
+
+.work-section {
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    color: rgb(255, 255, 255);
+  }
+}

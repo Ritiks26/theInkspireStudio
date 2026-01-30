@@ -1,0 +1,109 @@
+.hero-container {
+  position: relative;
+  height: 100svh;
+  width: 100%;
+  font-family: "almarena";
+}
+
+.hero-overlay {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--bg-black);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  will-change: clip-path;
+  z-index: 99;
+
+  .counter {
+    position: absolute;
+    right: 10%;
+    bottom: 10%;
+    color: var(--font-white);
+
+    h1 {
+      font-size: 4rem;
+      font-weight: 500;
+    }
+  }
+
+  .overlay-heading-container {
+    height: clamp(5rem, 3.5714rem + 7.1429vw, 10rem);
+    overflow: hidden;
+    .overlay-heading {
+      display: flex;
+      flex-direction: column;
+      transform: translateY(32%);
+      will-change: transform;
+      p {
+        color: var(--font-white);
+        font-size: clamp(5rem, 3.5714rem + 7.1429vw, 10rem);
+        line-height: 1;
+        text-align: center;
+      }
+    }
+  }
+
+  .overlay-text-container {
+    position: absolute;
+    top: 8%;
+    left: 4%;
+    height: 2rem;
+    overflow: hidden;
+
+    .overlay-text {
+      display: flex;
+      flex-direction: column;
+      transform: translateY(-6rem);
+      will-change: transform;
+
+      p {
+        color: var(--font-white);
+        height: 2rem;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.hero-section {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+
+  .image-container {
+    position: absolute;
+    height: 150%;
+    top: -130%;
+    right: 50%;
+    transform: translateX(50%);
+    z-index: 1;
+  }
+
+  p {
+    color: var(--font-black);
+    font-size: clamp(1rem, 1.2vw, 1.25rem);
+    overflow: hidden;
+    margin: 0.25rem;
+    font-weight: 600;
+  }
+  h1 {
+    color: var(--font-black);
+    font-size: clamp(4rem, 8vw, 8rem);
+
+    overflow: hidden;
+  }
+}

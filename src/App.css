@@ -1,0 +1,29 @@
+::view-transition-old(root) {
+  animation: 1.5s cubic-bezier(0.132, 0.293, 0.211, 1.039) both slideOut;
+}
+
+::view-transition-new(root) {
+  animation: 1.5s cubic-bezier(0.132, 0.293, 0.211, 1.039) both slideIn;
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(-35%);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+  }
+
+  to {
+    clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%);
+  }
+}

@@ -1,0 +1,303 @@
+.agency-container {
+  width: calc(100% - 1rem);
+  margin: 0 0.5rem;
+  font-family: var(--font-1);
+}
+
+.agency-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  width: 100%;
+
+  border-bottom: 1px solid lightgray;
+
+  h1 {
+    font-size: clamp(3.25rem, 2.3214rem + 4.6429vw, 6.5rem);
+    text-transform: uppercase;
+    font-family: "almarena";
+  }
+}
+
+.our-message-container {
+  padding: 0.5rem;
+
+  .message-heading {
+    color: gray;
+    font-size: 0.85rem;
+  }
+
+  .our-message-child {
+    margin-top: 2rem;
+    p {
+      font-size: clamp(1.5rem, 1.4286rem + 0.3571vw, 1.75rem);
+      font-weight: 500;
+      width: 85%;
+    }
+  }
+
+  .our-message-child:nth-child(3) {
+    margin-top: 1rem;
+  }
+}
+
+.booking-container {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  height: 100vh;
+  border-radius: 1rem;
+  margin: 2rem 0;
+  padding: 0.5rem;
+
+  .booking-container-child {
+    height: 150px;
+    width: 50%;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    .booking-content {
+      color: var(--font-black);
+      background-color: rgba(255, 255, 255, 0.295);
+      backdrop-filter: blur(0.75rem);
+      padding: 1rem;
+      border-radius: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    .booking-link {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      padding: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: black;
+      cursor: pointer;
+    }
+  }
+
+  video {
+    inset: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+  }
+}
+
+.ceo-message-container {
+  .ceo-message-child {
+    p {
+      font-size: clamp(1.75rem, 1.6071rem + 0.7143vw, 2.25rem);
+      /* font-size: 1.75rem; */
+      font-weight: 500;
+      width: 60%;
+
+      @media (width < 640px) {
+        width: 100%;
+      }
+    }
+  }
+
+  .ceo-profile {
+    margin: 0.25rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    height: 10vh;
+
+    .image-wrapper {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+
+      img {
+        display: block;
+        height: 100%;
+        width: 100%;
+        border-radius: inherit;
+      }
+    }
+
+    p {
+      font-weight: 500;
+      color: gray;
+    }
+  }
+}
+
+.our-exports-container {
+  margin-top: 4rem;
+}
+
+.heading-container {
+  h1 {
+    font-size: clamp(2.75rem, 1.8214rem + 4.6429vw, 6rem);
+    text-align: left;
+    text-transform: uppercase;
+    /* font-family: "almarena"; */
+    font-family: var(--font-3);
+    font-weight: 500;
+    width: 50%;
+
+    @media (width < 640px) {
+      width: 80%;
+    }
+  }
+}
+
+.export-types {
+  .export-count {
+    margin: 1.5rem 0;
+    p {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: gray;
+    }
+  }
+
+  .export-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 6rem;
+
+    @media (width < 640px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .export-grid-child {
+      border-top: 1px solid lightgray;
+      padding: 1.5rem 0;
+
+      .export-content {
+        h1 {
+          font-weight: 500;
+        }
+
+        p {
+          margin-top: 1rem;
+          font-size: clamp(1.25rem, 1.1786rem + 0.3571vw, 1.5rem);
+          font-weight: 500;
+          width: 90%;
+          color: rgb(88, 88, 88);
+        }
+      }
+
+      .we-provide-container {
+        display: flex;
+        gap: 0.25rem;
+        margin: 0.25rem 0;
+
+        @media (width < 640px) {
+          flex-direction: column;
+          width: fit-content;
+        }
+
+        .we-provide {
+          font-size: clamp(1rem, 0.9714rem + 0.1429vw, 1.1rem);
+          font-weight: 500;
+          text-wrap: nowrap;
+
+          background-color: whitesmoke;
+          padding: 0.75rem 1.5rem;
+          border-radius: 2rem;
+        }
+      }
+    }
+
+    .export-grid-child:nth-child(2) {
+      border-top: 1px solid black;
+    }
+  }
+}
+
+.clients-container {
+  font-family: "almarena";
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+
+  .agency-heading {
+    margin-top: 0.5rem;
+    padding: 0;
+    font-weight: 500;
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    color: var(font-black);
+    text-align: center;
+    font-family: var(--font-3);
+  }
+}
+
+.clients-work-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+
+  @media (width < 1024px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.clients-work-child {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+
+  &:nth-child(1) {
+    @media (width < 1024px) {
+      display: none;
+    }
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.25rem;
+
+    &:hover img {
+      opacity: 0.15;
+    }
+
+    img {
+      transition: opacity 0.25s ease-in-out;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.client-work {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+
+  height: 90%;
+  width: 70%;
+
+  h1 {
+    font-size: 2rem;
+    font-family: "almarena";
+  }
+
+  p {
+    font-family: "almarena";
+    font-size: 1.1rem;
+    line-height: 1.2;
+  }
+}

@@ -1,0 +1,104 @@
+.service-container {
+  height: 100vh;
+  width: 100%;
+  font-family: "almarena";
+
+  h1 {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: clamp(1.75rem, 1.6071rem + 0.7143vw, 2.25rem);
+    color: black;
+    text-align: center;
+    font-family: var(--font-3);
+  }
+
+  .brand-heading {
+    p {
+      text-align: center;
+      font-weight: 600;
+      margin: 0.5rem 0;
+      text-transform: uppercase;
+      font-family: var(--font-3);
+    }
+  }
+}
+
+.service-section {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 90%;
+  width: 100%;
+  padding: 0 0.5rem 0.5rem 0.5rem;
+}
+
+.service {
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  border-radius: 0.75rem;
+  overflow: hidden;
+
+  .link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 8%;
+    aspect-ratio: 1 / 1;
+    background-color: white;
+    backdrop-filter: blur(1rem);
+    bottom: 2%;
+    right: 3%;
+    border-radius: 50%;
+    transform: rotateZ(-35deg);
+    cursor: pointer;
+  }
+}
+
+.service-summary {
+  flex-direction: column;
+  align-items: end;
+  justify-content: start;
+  gap: 0.75rem;
+  height: 90%;
+  width: 28%;
+
+  &:nth-child(3) {
+    align-items: start;
+    justify-content: start;
+  }
+
+  .service-image-wrapper-top,
+  .service-image-wrapper-middle,
+  .service-content {
+    height: 35%;
+    width: 85%;
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+
+  .service-image-wrapper-middle {
+    width: 75%;
+    height: 28%;
+  }
+
+  .service-content {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+    height: fit-content;
+    padding: 1rem;
+    min-height: 20%;
+    width: 100%;
+
+    p {
+      color: black;
+      line-height: 1.25;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+  }
+}

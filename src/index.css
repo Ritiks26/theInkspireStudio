@@ -1,0 +1,77 @@
+@font-face {
+  font-family: "almarena";
+  src: url("./assets/fonts/almarenaneue-regular.otf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "almarena-italic";
+  src: url("./assets/fonts/almarenaneue-ds-regular-it.otf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "f37";
+  src: url("./assets/fonts/F37Bolton-VF.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "f37-1";
+  src: url("./assets/fonts/F37BoltonArabic-VF.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "f37-2";
+  src: url("./assets/fonts/F37BoltonCyrillic-VF.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "f37-3";
+  src: url("./assets/fonts/F37BoltonGreek-VF.ttf");
+  font-weight: 400;
+}
+
+:root {
+  --font-1: "general sans";
+  --font-2: "satoshi";
+  --font-3: "clash display";
+  --bg-white: white;
+  --bg-black: black;
+  --font-white: white;
+  --font-black: black;
+  --yellow: #ffb700;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+img,
+video {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+body {
+  font-family: var(--font-2);
+  background-color: var(--bg-white);
+}
+
+/* html,
+body {
+  overflow: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+} */
