@@ -83,174 +83,174 @@ export function Agency() {
     };
   }, []);
 
-  // useGSAP(() => {
-  //   document.fonts.ready.then(() => {
-  //     const splitHeading = SplitText.create(".agency-section h1", {
-  //       type: "lines, words",
-  //     });
+  useGSAP(() => {
+    document.fonts.ready.then(() => {
+      const splitHeading = SplitText.create(".agency-section h1", {
+        type: "lines, words",
+      });
 
-  //     const splitMessageHeading = SplitText.create(".message-heading", {
-  //       type: "lines, words",
-  //     });
+      const splitMessageHeading = SplitText.create(".message-heading", {
+        type: "lines, words",
+      });
 
-  //     const splitOurMessage = SplitText.create(".our-message-child p", {
-  //       type: "lines, words",
-  //     });
+      const splitOurMessage = SplitText.create(".our-message-child p", {
+        type: "lines, words",
+      });
 
-  //     const splitCeoMessage = SplitText.create(".ceo-message-child p", {
-  //       type: "lines, words",
-  //     });
+      const splitCeoMessage = SplitText.create(".ceo-message-child p", {
+        type: "lines, words",
+      });
 
-  //     const splitHeadingContainer = SplitText.create(".heading-container h1", {
-  //       type: "lines, words",
-  //     });
+      const splitHeadingContainer = SplitText.create(".heading-container h1", {
+        type: "lines, words",
+      });
 
-  //     gsap.set(splitHeading.lines, {
-  //       clipPath: "inset(0% 0% 100% 0%)",
-  //       yPercent: 100,
-  //     });
+      gsap.set(splitHeading.lines, {
+        clipPath: "inset(0% 0% 100% 0%)",
+        yPercent: 100,
+      });
 
-  //     gsap.set(splitMessageHeading.lines, {
-  //       opacity: 0,
-  //     });
+      gsap.set(splitMessageHeading.lines, {
+        opacity: 0,
+      });
 
-  //     gsap.set(splitOurMessage.lines, {
-  //       clipPath: "inset(0% 0% 100% 0%)",
-  //       yPercent: 100,
-  //     });
+      gsap.set(splitOurMessage.lines, {
+        clipPath: "inset(0% 0% 100% 0%)",
+        yPercent: 100,
+      });
 
-  //     gsap.set(splitCeoMessage.lines, {
-  //       clipPath: "inset(0% 0% 100% 0%)",
-  //       yPercent: 100,
-  //     });
+      gsap.set(splitCeoMessage.lines, {
+        clipPath: "inset(0% 0% 100% 0%)",
+        yPercent: 100,
+      });
 
-  //     gsap.set(splitHeadingContainer.lines, {
-  //       clipPath: "inset(0% 0% 100% 0%)",
-  //       yPercent: 100,
-  //     });
+      gsap.set(splitHeadingContainer.lines, {
+        clipPath: "inset(0% 0% 100% 0%)",
+        yPercent: 100,
+      });
 
-  //     gsap.to(splitHeading.lines, {
-  //       clipPath: "inset(0% 0% 0% 0%)",
-  //       yPercent: 0,
-  //       duration: 1,
-  //       ease: "bpEase",
-  //     });
+      gsap.to(splitHeading.lines, {
+        clipPath: "inset(0% 0% 0% 0%)",
+        yPercent: 0,
+        duration: 1,
+        ease: "bpEase",
+      });
 
-  //     gsap.to(splitMessageHeading.lines, {
-  //       opacity: 1,
-  //       duration: 1,
-  //     });
+      gsap.to(splitMessageHeading.lines, {
+        opacity: 1,
+        duration: 1,
+      });
 
-  //     gsap.to(splitOurMessage.lines, {
-  //       clipPath: "inset(0% 0% 0% 0%)",
-  //       yPercent: 0,
-  //       duration: 2,
-  //       ease: "bpEase",
-  //       scrollTrigger: {
-  //         trigger: ".our-message-child",
-  //         start: "top 75%",
-  //       },
-  //     });
+      gsap.to(splitOurMessage.lines, {
+        clipPath: "inset(0% 0% 0% 0%)",
+        yPercent: 0,
+        duration: 2,
+        ease: "bpEase",
+        scrollTrigger: {
+          trigger: ".our-message-child",
+          start: "top 75%",
+        },
+      });
 
-  //     gsap.to(splitCeoMessage.lines, {
-  //       clipPath: "inset(0% 0% 0% 0%)",
-  //       yPercent: 0,
-  //       duration: 2,
-  //       ease: "bpEase",
-  //       scrollTrigger: {
-  //         trigger: ".ceo-message-child",
-  //         start: "top 75%",
-  //       },
-  //     });
+      gsap.to(splitCeoMessage.lines, {
+        clipPath: "inset(0% 0% 0% 0%)",
+        yPercent: 0,
+        duration: 2,
+        ease: "bpEase",
+        scrollTrigger: {
+          trigger: ".ceo-message-child",
+          start: "top 75%",
+        },
+      });
 
-  //     gsap.to(splitHeadingContainer.lines, {
-  //       clipPath: "inset(0% 0% 0% 0%)",
-  //       yPercent: 0,
-  //       duration: 1,
-  //       ease: "bpEase",
-  //       scrollTrigger: {
-  //         trigger: ".heading-container",
-  //         start: "top 75%",
-  //       },
-  //     });
+      gsap.to(splitHeadingContainer.lines, {
+        clipPath: "inset(0% 0% 0% 0%)",
+        yPercent: 0,
+        duration: 1,
+        ease: "bpEase",
+        scrollTrigger: {
+          trigger: ".heading-container",
+          start: "top 75%",
+        },
+      });
 
-  //     const section = gsap.utils.toArray(".export-types");
+      const section = gsap.utils.toArray(".export-types");
 
-  //     section.forEach((sec) => {
-  //       const count = sec.querySelectorAll(".export-count");
+      section.forEach((sec) => {
+        const count = sec.querySelectorAll(".export-count");
 
-  //       const exportContentHeading = sec.querySelectorAll(".export-content h1");
+        const exportContentHeading = sec.querySelectorAll(".export-content h1");
 
-  //       const exportContentPara = sec.querySelectorAll(".export-content p");
+        const exportContentPara = sec.querySelectorAll(".export-content p");
 
-  //       const weProvide = sec.querySelectorAll(".we-provide");
+        const weProvide = sec.querySelectorAll(".we-provide");
 
-  //       const splitExportHeading = SplitText.create(exportContentHeading, {
-  //         type: "lines, words",
-  //       });
+        const splitExportHeading = SplitText.create(exportContentHeading, {
+          type: "lines, words",
+        });
 
-  //       const splitExportPara = SplitText.create(exportContentPara, {
-  //         type: "lines, words",
-  //       });
+        const splitExportPara = SplitText.create(exportContentPara, {
+          type: "lines, words",
+        });
 
-  //       gsap.set(count, {
-  //         clipPath: "inset(0% 0% 100% 0%)",
-  //         yPercent: 100,
-  //       });
+        gsap.set(count, {
+          clipPath: "inset(0% 0% 100% 0%)",
+          yPercent: 100,
+        });
 
-  //       gsap.set(splitExportHeading.lines, {
-  //         clipPath: "inset(0% 0% 100% 0%)",
-  //         yPercent: 100,
-  //       });
+        gsap.set(splitExportHeading.lines, {
+          clipPath: "inset(0% 0% 100% 0%)",
+          yPercent: 100,
+        });
 
-  //       gsap.set(splitExportPara.lines, {
-  //         clipPath: "inset(0% 0% 100% 0%)",
-  //         yPercent: 100,
-  //       });
+        gsap.set(splitExportPara.lines, {
+          clipPath: "inset(0% 0% 100% 0%)",
+          yPercent: 100,
+        });
 
-  //       gsap.set(weProvide, {
-  //         clipPath: "inset(0% 0% 100% 0%)",
-  //         yPercent: 100,
-  //       });
+        gsap.set(weProvide, {
+          clipPath: "inset(0% 0% 100% 0%)",
+          yPercent: 100,
+        });
 
-  //       const t2 = gsap.timeline({
-  //         scrollTrigger: {
-  //           trigger: sec,
-  //           start: "top 75%",
-  //         },
-  //       });
+        const t2 = gsap.timeline({
+          scrollTrigger: {
+            trigger: sec,
+            start: "top 75%",
+          },
+        });
 
-  //       t2.to(count, {
-  //         clipPath: "inset(0% 0% 0% 0%)",
-  //         yPercent: 0,
-  //         ease: "bpEase",
-  //         // duration: 1,
-  //       })
-  //         .to(splitExportHeading.lines, {
-  //           clipPath: "inset(0% 0% 0% 0%)",
-  //           yPercent: 0,
-  //           ease: "bpEase",
-  //           // duration: 1,
-  //         })
-  //         .to(splitExportPara.lines, {
-  //           clipPath: "inset(0% 0% 0% 0%)",
-  //           yPercent: 0,
-  //           ease: "bpEase",
-  //           // duration: 1,
-  //         })
-  //         .to(
-  //           weProvide,
-  //           {
-  //             clipPath: "inset(0% 0% 0% 0%)",
-  //             yPercent: 0,
-  //             ease: "bpEase",
-  //             // duration: 1,
-  //           },
-  //           "<",
-  //         );
-  //     });
-  //   });
-  // });
+        t2.to(count, {
+          clipPath: "inset(0% 0% 0% 0%)",
+          yPercent: 0,
+          ease: "bpEase",
+          // duration: 1,
+        })
+          .to(splitExportHeading.lines, {
+            clipPath: "inset(0% 0% 0% 0%)",
+            yPercent: 0,
+            ease: "bpEase",
+            // duration: 1,
+          })
+          .to(splitExportPara.lines, {
+            clipPath: "inset(0% 0% 0% 0%)",
+            yPercent: 0,
+            ease: "bpEase",
+            // duration: 1,
+          })
+          .to(
+            weProvide,
+            {
+              clipPath: "inset(0% 0% 0% 0%)",
+              yPercent: 0,
+              ease: "bpEase",
+              // duration: 1,
+            },
+            "<",
+          );
+      });
+    });
+  });
 
   useGSAP(() => {
     const bookingLinkElem = bookingLinkRef.current;
@@ -260,27 +260,51 @@ export function Agency() {
       y: -20,
     });
 
-    const mouseOver = () => {
-      gsap.to(bookingLinkElem, {
-        rotate: "-43deg",
-        ease: "power4.inOut",
-      });
+    gsap.set(".booking-arrow-svg", {
+      rotate: "-45deg",
+      opacity: 0,
+    });
 
-      gsap.to(".booking-content", {
-        clipPath: "inset(0% 0% 0% 0%)",
-        y: 0,
-      });
+    gsap.set(".riser", {
+      height: "10%",
+      width: "10%",
+    });
+
+    const tl = gsap.timeline();
+
+    const mouseOver = () => {
+      tl.to(".riser", {
+        height: "90%",
+        width: "90%",
+        ease: "power3.inOut",
+      })
+        .to(".booking-content", {
+          clipPath: "inset(0% 0% 0% 0%)",
+          y: 0,
+        })
+        .to(
+          ".booking-arrow-svg",
+          {
+            opacity: 1,
+          },
+          "<",
+        );
     };
 
     const mouseLeave = () => {
-      gsap.to(bookingLinkElem, {
-        rotate: "0deg",
-        ease: "power4.inOut",
+      gsap.to(".riser", {
+        height: "10%",
+        width: "10%",
+        ease: "power1.inOut",
       });
 
       gsap.to(".booking-content", {
         clipPath: "inset(0% 0% 100% 0%)",
         y: -20,
+      });
+
+      gsap.to(".booking-arrow-svg", {
+        opacity: 0,
       });
     };
 
@@ -320,18 +344,21 @@ export function Agency() {
               book a discovery call help us catch your vision.
             </div>
             <div className="booking-link" ref={bookingLinkRef}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="26"
-                height="26"
-                fill="white"
-                viewBox="0 0 15 15"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-                />
-              </svg>
+              <div className="riser">
+                <svg
+                  className="booking-arrow-svg"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="26"
+                  height="26"
+                  fill="black"
+                  viewBox="0 0 15 15"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
+                  />
+                </svg>
+              </div>
             </div>
           </div>
           <video

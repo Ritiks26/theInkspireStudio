@@ -1,27 +1,102 @@
 .work-container {
-  height: 100vh;
+  min-height: auto;
   width: 100%;
-  background-color: crimson;
+  padding: 0 0.5rem;
+}
 
+.work-hero {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: start;
   justify-content: center;
+  height: 75vh;
+  p {
+    color: var(--font-black);
+    width: 40%;
+    font-size: 1.1rem;
+    font-weight: 500;
 
-  h1 {
-    color: rgb(255, 255, 255);
+    @media (width < 640px) {
+      width: 100%;
+    }
+
+    &:nth-child(2) {
+      color: gray;
+    }
   }
 }
 
-.work-section {
-  height: 100vh;
+.project-container {
   width: 100%;
-  background-color: black;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   h1 {
-    color: rgb(255, 255, 255);
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-left: 0.25rem;
+    }
+
+    .expand-project {
+      font-size: 1.75rem;
+      display: inline-block;
+      font-weight: 500;
+      cursor: pointer;
+    }
+  }
+}
+
+.project-grid {
+  position: relative;
+  height: auto;
+  width: 100%;
+  margin: 0.25rem 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  align-items: start;
+  row-gap: 1.75rem;
+
+  @media (width < 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-summary {
+    position: absolute;
+    background-color: black;
+    border-radius: 0.75rem;
+    padding: 1rem;
+
+    p {
+      color: white;
+      width: 75%;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+.project-grid-child {
+  /* height: 55vh; */
+
+  height: auto;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background-color: lightgray;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &:nth-child(2),
+  &:nth-child(4) {
+    /* height: 80vh; */
+    width: 100%;
+    aspect-ratio: 4 / 7;
+    background-image: url("https://framerusercontent.com/images/oJfaj3D5GtkjQLQEK6iFJj6wUHk.jpg?scale-down-to=1024&width=2400&height=3600");
+  }
+  &:nth-child(6) {
+    background-image: url("https://framerusercontent.com/images/ohpZOwAr4YvEEnVjb10iAIMj6w.jpg?width=3000&height=2077");
   }
 }
