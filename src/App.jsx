@@ -68,7 +68,7 @@ import gsap from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect } from "react";
-import { useLocation, Routes, Route } from "react-router";
+import { useLocation, Routes, Route, Outlet } from "react-router";
 import { Header } from "./components/Header";
 import { HomePage } from "./Pages/HomePage";
 import { AboutPage } from "./Pages/AboutPage";
@@ -76,11 +76,22 @@ import { Agency } from "./Pages/Agency";
 import { Work } from "./Pages/Work";
 import { Connect } from "./Pages/Connect";
 import { Footer } from "./components/Footer";
+import { NotFound } from "./components/NotFound";
 import "./App.css";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-function App() {
+function Layout() {
+  return (
+    <>
+      <Header />
+      <Outlet />
+      <Footer />
+    </>
+  );
+}
+
+export default function App() {
   const location = useLocation().pathname;
 
   useEffect(() => {
@@ -114,16 +125,15 @@ function App() {
 
   return (
     <>
-      <Header />
       <Routes location={location}>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/agency" element={<Agency />} />
-        <Route path="/work" element={<Work />} />
-        <Route path="/connect" element={<Connect />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/agency" element={<Agency />} />
+          <Route path="/work" element={<Work />} />
+          <Route path="/connect" element={<Connect />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
     </>
   );
 }
-
-export default App;
