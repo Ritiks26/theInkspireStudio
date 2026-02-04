@@ -143,8 +143,24 @@ export function Work() {
             <div className="project-grid-child"></div>
             <div className="project-grid-child"></div>
             <div className="project-grid-child"></div>
-            <div className="project-grid-child"></div>
-            <div className="project-grid-child"></div>
+            <div className="project-grid-child">
+              <video
+                autoPlay
+                playsInline
+                muted
+                loop
+                src="https://framerusercontent.com/assets/MkDejLa7j6VLm8cU771sJWNj0.mp4"
+              ></video>
+            </div>
+            <div className="project-grid-child">
+              <video
+                playsInline
+                muted
+                loop
+                autoPlay
+                src="https://framerusercontent.com/assets/HSSFbHDNoC0IX39CvBoEVwMYk.mp4"
+              ></video>
+            </div>
           </div>
         </div>
       </div>

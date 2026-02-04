@@ -89,12 +89,12 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   background-color: #e0e0e0;
-  background-position: center;
-  background-repeat: no-repeat;
   overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   video {
-    object-fit: contain;
+    object-fit: cover;
   }
 }
 
@@ -102,21 +102,28 @@
 .project-grid-child:nth-child(5) {
   height: auto;
   width: 100%;
-  aspect-ratio: 4 / 6;
-  background-repeat: no-repeat;
-  background-size: cover;
+  aspect-ratio: 4 / 5;
 }
 
 .project-grid-child:nth-child(3) {
   background-image: url("https://framerusercontent.com/images/oJfaj3D5GtkjQLQEK6iFJj6wUHk.jpg?scale-down-to=1024&width=2400&height=3600");
 }
 
-.project-grid-child:nth-child(4) {
+.project-grid-child:nth-child(4),
+.project-grid-child:nth-child(8) {
   background-color: #0a0a0a;
 }
 
 .project-grid-child:nth-child(5) {
   background-image: url("https://framerusercontent.com/images/qjELdLQfqPSRuydquWauPkG0.jpg?scale-down-to=512&width=3400&height=2561");
+}
+
+.project-grid-child:nth-child(6) {
+  background-image: url("https://framerusercontent.com/images/Nl0Iz1Yii3WySFPpINVMnj9m6o.gif?width=2476&height=1754");
+}
+
+.project-grid-child:nth-child(7) {
+  background-image: url("https://framerusercontent.com/images/ohpZOwAr4YvEEnVjb10iAIMj6w.jpg?width=3000&height=2077");
 }
 
 .work-para {
