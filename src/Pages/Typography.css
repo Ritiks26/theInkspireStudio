@@ -5,23 +5,22 @@
   width: 100%;
   overflow: hidden;
 
-  .effect-container {
+  /* .effect-container {
     position: absolute;
     inset: 0;
     z-index: -1;
     padding: 1rem 0;
-    background-color: #000;
+    background-color: whitesmoke;
     display: flex;
     align-items: end;
     height: 100%;
     width: 100%;
     .background {
       width: 10%;
-      /* background-image: linear-gradient(rgb(49, 49, 49), rgb(0, 0, 0)); */
-      background-image: linear-gradient(#ffb700, rgb(0, 0, 0));
+      background-image: linear-gradient(rgb(0, 0, 0), #333);
       backdrop-filter: blur(0.75rem);
       margin: 0 0.5rem;
-      border-radius: 0.25rem;
+      border-radius: 0.25rem 0.25rem 0 0;
 
       @media (width < 640px) {
         width: 20%;
@@ -39,7 +38,7 @@
     .even {
       height: 80%;
     }
-  }
+  } */
 }
 
 .content-container {
@@ -81,24 +80,25 @@
   padding: 1rem;
 
   /* background-color: #3333336e; */
-  background-color: #0000006b;
-  backdrop-filter: blur(0.75rem);
+  background-color: #9cb2da67;
+  box-shadow: inset 0rem 0rem 2rem white;
+  backdrop-filter: blur(1rem);
   border-radius: 0.75rem;
 
   p {
     font-size: 1rem;
-    color: var(--font-white);
+    color: var(--font-black);
   }
 
   h1 {
     font-size: clamp(8rem, 4.5714rem + 17.1429vw, 20rem);
-    color: whitesmoke;
+    color: black;
   }
 
   .alphabet {
     font-size: 0.9rem;
     line-height: 1.5;
-    color: var(--font-white);
+    color: var(--font-black);
   }
 }
 
@@ -123,23 +123,24 @@
     padding: 0.75rem;
     height: fit-content;
     width: 50%;
-    background-color: #0000006b;
-    backdrop-filter: blur(0.75rem);
+    background-color: #9cb2da48;
+    box-shadow: inset 0rem 0rem 2rem white;
+    backdrop-filter: blur(1rem);
     border-radius: 0.75rem;
 
     p {
-      color: var(--font-white);
+      color: var(--font-black);
     }
 
     h1 {
-      color: whitesmoke;
+      color: black;
       font-size: clamp(2rem, 1.1429rem + 4.2857vw, 5rem);
       font-weight: 600;
     }
 
     .all-char {
       font-size: 0.85rem;
-      color: var(--font-white);
+      color: var(--font-black);
     }
   }
 
@@ -159,17 +160,17 @@
   border-radius: 0.75rem;
 
   p {
-    color: var(--font-white);
+    color: rgb(87, 87, 87);
     line-height: 1.25;
   }
 }
 
 .color-container {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   padding: 0.25rem 0;
   gap: 0.25rem;
-  height: 30%;
+  height: 85%;
   width: 100%;
 }
 
@@ -200,7 +201,10 @@
   }
 
   .yellow {
-    background-color: var(--yellow);
+    background-color: #000;
+    p {
+      color: white;
+    }
   }
 
   .whitesmoke {

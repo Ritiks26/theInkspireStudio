@@ -1,16 +1,18 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { CustomEase } from "gsap/CustomEase";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplitText } from "gsap/all";
+import { SplitText } from "gsap/SplitText";
 import { useRef, useState } from "react";
 import "./Work.css";
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
+gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase);
 
 export function Work() {
   const [toggleProject, setToggleProject] = useState(false);
   const expandProjectRef = useRef(null);
   const projectSummaryRef = useRef(null);
+
   useGSAP(() => {
     document.fonts.ready.then(() => {
       const splitHeroText = SplitText.create(".work-hero p", {
@@ -48,42 +50,40 @@ export function Work() {
         duration: 0.75,
         ease: "power3.inOut",
       });
-
-      const projectSummary = expandProjectRef.current;
-
-      const t1 = gsap.timeline({ delay: 3 });
-
-      t1.to(projectSummaryRef.current, {
-        opacity: 1,
-        height: "25vh",
-        width: "100%",
-        duration: 2,
-
-        ease: "power3.inOut",
-      })
-        .to(projectSummaryRef.current, {
-          opacity: 1,
-          height: "5vh",
-          width: "5%",
-          duration: 2,
-          ease: "power3.inOut",
-        })
-        .to(projectSummaryRef.current, {
-          opacity: 0,
-        });
-
-      const handleUpdateToggle = () => {
-        setToggleProject(!toggleProject);
-        gsap.to(projectSummary, {
-          rotate: toggleProject ? 0 : 45,
-          duration: 0.4,
-          ease: "power2.out",
-        });
-      };
-
-      projectSummary.addEventListener("click", handleUpdateToggle);
     });
   }, []);
+
+  useGSAP(() => {
+    gsap.set(".project-summary p", {
+      opacity: 0,
+      y: 20,
+    });
+
+    const t1 = gsap.timeline();
+
+    t1.to(expandProjectRef.current, {
+      rotate: toggleProject ? 45 : 0,
+      duration: 1,
+      ease: "power2.out",
+    })
+      .to(projectSummaryRef.current, {
+        height: toggleProject ? "35vh" : "5vh",
+        width: toggleProject ? "100%" : "5%",
+        opacity: toggleProject ? 1 : 0,
+        duration: 2,
+        ease: CustomEase.create(
+          "custom",
+          "M0,0 C0.095,0.027 0.39,-0.028 0.432,0.04 0.723,0.516 0.486,1 1,1 ",
+        ),
+      })
+      .to(".project-summary p", {
+        delay: 2,
+        opacity: 1,
+        duration: 1,
+        y: 0,
+        ease: "power3.in",
+      });
+  }, [toggleProject]);
   return (
     <>
       <title>THE INKSPIRE STUDIO | WORK</title>
@@ -99,7 +99,11 @@ export function Work() {
         <div className="project-container">
           <h1>
             lightship, <span style={{ color: "gray" }}>batteries, 2025</span>
-            <span className="expand-project" ref={expandProjectRef}>
+            <span
+              className="expand-project"
+              ref={expandProjectRef}
+              onClick={() => setToggleProject(!toggleProject)}
+            >
               +
             </span>
           </h1>

@@ -11,13 +11,24 @@ gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase);
 export function HeroSection() {
   const heroImageRef = useRef(null);
   const counterRef = useRef(null);
-  const hasPlayed = useRef(false);
+  const hasPlayed = useRef(sessionStorage.getItem("hero"));
 
   CustomEase.create("hop", "0.85, 0, 0.15, 1");
 
   useGSAP(() => {
-    if (hasPlayed.current) return;
+    const img = heroImageRef.current;
+
+    if (hasPlayed.current) {
+      gsap.set(".hero-overlay", {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+        display: "none",
+      });
+
+      return;
+    }
+
     hasPlayed.current = true;
+    sessionStorage.setItem("hero", "true");
 
     document.fonts.ready.then(() => {
       const splitText = SplitText.create(".hero-content p", {
@@ -46,7 +57,7 @@ export function HeroSection() {
         delay: 0.25,
       });
 
-      gsap.set(heroImageRef.current, {
+      gsap.set(img, {
         clipPath: "inset(0% 0% 100% 0%)",
         scale: 1.15,
       });
@@ -121,6 +132,9 @@ export function HeroSection() {
           duration: 0.5,
           ease: "hop",
         })
+        .to(".hero-overlay", {
+          display: "none",
+        })
         .to(splitText.words, {
           clipPath: "inset(0% 0% 0% 0%)",
           y: 0,
@@ -131,7 +145,7 @@ export function HeroSection() {
           y: 0,
           ease: "power1.inOut",
         })
-        .to(heroImageRef.current, {
+        .to(img, {
           clipPath: "inset(0% 0% 0% 0%)",
           scale: 1,
           duration: 1,

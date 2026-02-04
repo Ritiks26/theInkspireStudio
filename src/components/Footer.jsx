@@ -13,7 +13,7 @@ export function Footer() {
             autoPlay
             muted
             className="footer-video"
-            src="https://stokt.b-cdn.net/Golf%20Ball%20Render%20V1.webm"
+            src="https://cdn.pixabay.com/video/2023/09/23/182035-867576117_large.mp4"
           ></video>
           <div className="footer-grid">
             <div className="footer-grid-child">

@@ -18,12 +18,10 @@ export function Typography() {
 
     tl.to(even, {
       height: "100%",
-      // stagger: 0.15,
     }).to(
       odd,
       {
         height: "80%",
-        // stagger: 0.15,
       },
       "<",
     );
@@ -89,9 +87,9 @@ export function Typography() {
                 <div className="font-color-palatte">
                   <div
                     className="yellow"
-                    onClick={() => navigator.clipboard.writeText("#ffb700")}
+                    onClick={() => navigator.clipboard.writeText("#000")}
                   >
-                    <p>#ffb700</p>
+                    <p>#000</p>
                   </div>
                   <div
                     className="whitesmoke"

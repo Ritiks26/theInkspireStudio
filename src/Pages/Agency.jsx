@@ -81,6 +81,8 @@ export function Agency() {
         img.removeEventListener("mouseleave", mouseLeave);
       });
     };
+
+    ScrollTrigger.refresh();
   }, []);
 
   useGSAP(() => {
