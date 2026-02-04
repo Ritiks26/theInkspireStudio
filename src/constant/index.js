@@ -60,16 +60,15 @@ export const serviceWork = [
     brandHeading: "Visa",
     image: [
       "https://cdn.chipsa.design/nextapi/optimize?src=/storage/media/1422/Frame-412.png&w=1920&q=85",
-      "https://cdn.chipsa.design/nextapi/optimize?src=/storage/media/1420/1.png&w=1920&q=85",
-      "https://cdn.chipsa.design/nextapi/optimize?src=/storage/media/1421/2.png&w=1920&q=85",
-      "https://cdn.chipsa.design/nextapi/optimize?src=/storage/media/1423/4.png&w=1920&q=85",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/fb985e191474807.65cc4be00fc9c.png",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/1a416b191474807.65cc4be003f4f.png",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/74269e191474807.65cc4be00b1cf.png",
     ],
     workSummary:
-      "Behind every project is a story — a problem to solve, a message to communicate, an experience to create. We blend research, design thinking and craft to deliver work that feels modern,  functional and visually strong. Below is a curated selection of our recent projects that highlight our approach and attention to detail. ",
-
+      "AC Concierge is a modern, minimalist website design for a visa application center, focusing on user-friendly visuals and travel-inspired metaphors like airplane portholes to evoke global journeys",
     brandName: "PORSCHE",
-    serves: ["Creative Direction", "Post Production"],
-    servesMore: ["Film", "motion"],
+    serves: ["UI/UX", "Deployment"],
+    servesMore: ["Web development", "Branding"],
   },
 ];
 

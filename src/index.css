@@ -51,12 +51,23 @@
   margin: 0;
 }
 
+button,
+div,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
 img,
 video {
   display: block;
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+
+::selection {
+  color: gray;
+  background-color: black;
 }
 
 body {

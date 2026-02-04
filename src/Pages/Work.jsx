@@ -76,13 +76,17 @@ export function Work() {
           "M0,0 C0.095,0.027 0.39,-0.028 0.432,0.04 0.723,0.516 0.486,1 1,1 ",
         ),
       })
-      .to(".project-summary p", {
-        delay: 2,
-        opacity: 1,
-        duration: 1,
-        y: 0,
-        ease: "power3.in",
-      });
+      .to(
+        ".project-summary p",
+        {
+          delay: 2,
+          opacity: 1,
+          duration: 1,
+          y: 0,
+          ease: "power3.in",
+        },
+        "<",
+      );
   }, [toggleProject]);
   return (
     <>
@@ -98,7 +102,7 @@ export function Work() {
         </div>
         <div className="project-container">
           <h1>
-            lightship, <span style={{ color: "gray" }}>batteries, 2025</span>
+            Polestar, <span style={{ color: "gray" }}>4, 2025</span>
             <span
               className="expand-project"
               ref={expandProjectRef}
@@ -117,9 +121,25 @@ export function Work() {
                 online car configurator.
               </p>
             </div>
+            <div className="project-grid-child">
+              <video
+                playsInline
+                autoPlay
+                muted
+                loop
+                src="https://framerusercontent.com/assets/Qrk0elN6Z8hA6jP8kW616C0MCWA.mp4"
+              ></video>
+            </div>
             <div className="project-grid-child"></div>
-            <div className="project-grid-child"></div>
-            <div className="project-grid-child"></div>
+            <div className="project-grid-child">
+              <video
+                playsInline
+                autoPlay
+                muted
+                loop
+                src="https://framerusercontent.com/assets/a3xJFwdaGBP75olNxNm9TZYbU.mp4"
+              ></video>
+            </div>
             <div className="project-grid-child"></div>
             <div className="project-grid-child"></div>
             <div className="project-grid-child"></div>
