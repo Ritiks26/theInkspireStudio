@@ -46,43 +46,15 @@ export function Typography() {
           <h1 className="typography-heading">typography & colors</h1>
 
           <div className="design-container-grid">
-            <div className="sample-font">
-              <p>almarena</p>
-              <h1>Aa</h1>
-              <p className="alphabet">
-                Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv
-                Ww Xx Yy Zz
-              </p>
+            <div className="container">
+              <div className="sample-font">
+                <h1>Aa</h1>
+              </div>
+              <p>clash display</p>
             </div>
 
             <div className="design-container-child">
               {" "}
-              <div className="sample-font-others">
-                <div className="general-sans">
-                  <p>general sans</p>
-                  <h1>Aa</h1>
-                  <p className="all-char">
-                    Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu
-                    Vv Ww Xx Yy Zz
-                  </p>
-                </div>
-                <div className="satoshi-font">
-                  <p>satoshi</p>
-                  <h1>Aa</h1>
-                  <p className="all-char">
-                    Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu
-                    Vv Ww Xx Yy Zz
-                  </p>
-                </div>
-              </div>
-              <div className="content">
-                <p>
-                  The palette of yellow, whitesmoke, and soft neutrals creates a
-                  bold yet balanced identity yellow adds energy and focus, while
-                  whitesmoke and light tones bring clarity, softness, and a
-                  premium, minimal feel.
-                </p>
-              </div>
               <div className="color-container">
                 <div className="font-color-palatte">
                   <div

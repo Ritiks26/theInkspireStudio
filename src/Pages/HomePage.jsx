@@ -11,7 +11,6 @@ export function HomePage() {
       <HeroSection />
       <AboutPage />
       <Service />
-      <Typography />
     </>
   );
 }

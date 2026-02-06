@@ -1,4 +1,4 @@
-.about-container {
+/* .about-container {
   margin: 4rem 0 0 0;
   padding: 1rem 0 5rem 0;
   font-family: "almarena";
@@ -114,6 +114,148 @@
         top: 50%;
         object-fit: cover;
       }
+    }
+  }
+} */
+
+.about-container {
+  margin: 4rem 0;
+  padding: 1rem 0.25rem;
+  font-family: "almarena";
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+
+  h1 {
+    margin-bottom: 2rem;
+    font-weight: 500;
+    font-size: clamp(1.75rem, 1.6071rem + 0.7143vw, 2.25rem);
+    color: black;
+    text-align: center;
+    font-family: var(--font-3);
+  }
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.75fr 1fr 0.75fr;
+  width: 100%;
+  gap: 0.5rem;
+
+  @media (width < 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-content,
+.grid-content-right {
+  padding: 0 0.5rem;
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: var(--font-2);
+
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.grid-content {
+  .grid-content-child {
+    p {
+      font-size: 0.95rem;
+      line-height: 1.1;
+      margin: 1.25rem 0;
+      text-align: left;
+    }
+  }
+}
+
+.grid-content-right {
+  width: 100%;
+  text-align: left;
+}
+
+.right-content {
+  margin: 0.5rem 0;
+  ul {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: gray;
+  }
+
+  p {
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+  }
+
+  &:nth-child(2) {
+    text-align: right;
+  }
+}
+
+.grid-middle-section {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.about-image-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 0.25rem;
+
+  img {
+    border-radius: inherit;
+  }
+
+  .first-image {
+    height: 90px;
+    width: 90px;
+    border-radius: 0.5rem;
+  }
+
+  .second-image {
+    height: 150px;
+    width: 150px;
+    border-radius: 0.5rem;
+  }
+
+  .third-image {
+    height: 180px;
+    width: 180px;
+    border-radius: 0.5rem;
+  }
+
+  &:nth-child(2) {
+    align-items: start;
+
+    .first-image {
+      height: 180px;
+      width: 180px;
+      border-radius: 0.5rem;
+    }
+
+    .second-image {
+      height: 150px;
+      width: 150px;
+      border-radius: 0.5rem;
+    }
+
+    .third-image {
+      height: 90px;
+      width: 90px;
+      border-radius: 0.5rem;
     }
   }
 }

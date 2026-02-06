@@ -7,97 +7,38 @@ export function Footer() {
     <>
       <div className="footer-container">
         <div className="footer-section">
-          <video
-            playsInline
-            loop
-            autoPlay
-            muted
-            className="footer-video"
-            src="https://cdn.pixabay.com/video/2023/09/23/182035-867576117_large.mp4"
-          ></video>
-          <div className="footer-grid">
-            <div className="footer-grid-child">
-              <div className="contact">
-                <h1>The Inkspire Studio</h1>
-                <p>New Delhi, Delhi | India</p>
-                <p>hello@inkspirestudio.com</p>
-              </div>
-            </div>
-            <div className="footer-grid-child">
-              <div className="footer-links">
-                <div className="quick-nav">
-                  <ul>
-                    <p>Index</p>
-                    {navMenus.map((link) => (
-                      <li key={link.id}>
-                        <NavLink
-                          to={link.id}
-                          onClick={(e) => handleNav(e, link.id)}
-                          className={({ isActive }) =>
-                            isActive ? "active" : ""
-                          }
-                        >
-                          {link.title}
-                        </NavLink>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="legals">
-                  <ul>
-                    <p>Terms & Policies</p>
-                    <li>
-                      <a href="#">License Agreement</a>
-                    </li>
-                    <li>
-                      <a href="#">Privacy Policy</a>
-                    </li>
-                    <li>
-                      <a href="#">Cookie Settings</a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="stores">
-                  <ul>
-                    <p>Digital Stores</p>
-                    <li>
-                      <a href="#">Mockups</a>
-                    </li>
-                    <li>
-                      {" "}
-                      <a href="#">Framers Templates</a>
-                    </li>
-                    <li>
-                      <a href="#">Freebies</a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="socials">
-                  <ul>
-                    <p>Socials</p>
-                    <li>
-                      <a href="#">Instagram</a>
-                    </li>
-                    <li>
-                      <a href="#">Linked In</a>
-                    </li>
-                    <li>
-                      <a href="#">Youtube</a>
-                    </li>
-                    <li>
-                      <a href="#">Tik Tok</a>
-                    </li>
-                    <li>
-                      <a href="#">Behance</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+          <div className="footer-content">
+            <h1>the</h1>
+            <h1>inkspire studio</h1>
+            <h1>'2026</h1>
           </div>
-          <div className="copyrights">
-            <p>© 2026 The Inkspire Studio Co. all rights reserved</p>
+          <div className="socials">
+            <p>Socials</p>
+            <ul>
+              <li>
+                <a href="#">Behance</a>
+              </li>
+              <li>
+                <a href="#">Awwwards</a>
+              </li>
+              <li>
+                <a href="#">Instagram</a>
+              </li>
+              <li>
+                <a href="#">Linkedin</a>
+              </li>
+              <li>
+                <a href="#">Twitter</a>
+              </li>
+            </ul>
           </div>
+        </div>
+        <div className="closing-header">
+          <p>©2026 THE INKSPIRE STUDIO. All Rights Reserved</p>
+
+          <p>WORLDWIDE</p>
+
+          <p>the-inkspire-studio.com</p>
         </div>
       </div>
     </>
