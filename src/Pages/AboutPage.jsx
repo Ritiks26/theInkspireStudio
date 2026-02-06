@@ -147,8 +147,11 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import "./AboutPage.css";
 import { useRef } from "react";
+import aboutPic1 from "../assets/pic/hero-pic-2.jpeg";
+import aboutPic2 from "../assets/pic/about-pic-1.png";
+import aboutPic3 from "../assets/pic/about-pic-2.png";
+import "./AboutPage.css";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -284,42 +287,24 @@ export function AboutPage() {
           <div className="grid-middle-section">
             <div className="about-image-wrapper">
               <div className="first-image about-pic">
-                <img
-                  src="http://localhost:5173/src/assets/pic/hero-pic-2.jpeg"
-                  alt=""
-                />
+                <img src={aboutPic1} alt="" />
               </div>
               <div className="second-image about-pic">
-                <img
-                  src="https://cappen.com/wp-content/uploads/2025/09/26753a1649cd851ba7d953c659aa99713a810b89b7baca09fce4b2e269273ae5.webp"
-                  alt=""
-                />
+                <img src={aboutPic3} alt="" />
               </div>
               <div className="third-image about-pic">
-                <img
-                  src="https://cappen.com/wp-content/uploads/2025/09/ChatGPT-Image-Sep-18-2025-12_51_37-AM.webp"
-                  alt=""
-                />
+                <img src={aboutPic2} alt="" />
               </div>
             </div>
             <div className="about-image-wrapper">
               <div className="first-image about-pic">
-                <img
-                  src="https://cappen.com/wp-content/uploads/2025/09/ChatGPT-Image-Sep-18-2025-12_51_37-AM.webp"
-                  alt=""
-                />
+                <img src={aboutPic2} alt="" />
               </div>
               <div className="second-image about-pic">
-                <img
-                  src="https://cappen.com/wp-content/uploads/2025/09/26753a1649cd851ba7d953c659aa99713a810b89b7baca09fce4b2e269273ae5.webp"
-                  alt=""
-                />
+                <img src={aboutPic3} alt="" />
               </div>
               <div className="third-image about-pic">
-                <img
-                  src="http://localhost:5173/src/assets/pic/hero-pic-2.jpeg"
-                  alt=""
-                />
+                <img src={aboutPic1} alt="" />
               </div>
             </div>
           </div>
