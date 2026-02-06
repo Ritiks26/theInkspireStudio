@@ -102,16 +102,15 @@
 
   .image-wrapper {
     display: flex;
+    gap: 0.25rem;
     align-items: end;
-    height: 90px;
+    height: 10vh;
     width: fit-content;
     border-radius: 0.5rem;
-    display: flex;
 
     .hero-image {
       opacity: 0;
       border-radius: inherit;
-      margin: 0 0.125rem;
       cursor: pointer;
 
       &:nth-child(1) {

@@ -12,10 +12,18 @@ export function Work() {
   const [toggleProject, setToggleProject] = useState(false);
   const expandProjectRef = useRef(null);
   const projectSummaryRef = useRef(null);
+  const t1Ref = useRef(null);
 
   useGSAP(() => {
     document.fonts.ready.then(() => {
+      const summarizedProject = projectSummaryRef.current;
+      const projectSummary = summarizedProject.querySelector("p");
+
       const splitHeroText = SplitText.create(".work-hero p", {
+        type: "chars, lines",
+      });
+
+      const splitSummary = SplitText.create(projectSummary, {
         type: "chars, lines",
       });
 
@@ -30,9 +38,15 @@ export function Work() {
       });
 
       gsap.set(projectSummaryRef.current, {
-        height: "5vh",
-        width: "5%",
+        height: "80px",
+        width: "80px",
         opacity: 0,
+      });
+
+      gsap.set(splitSummary.lines, {
+        display: "none",
+        clipPath: "inset(0% 0% 100% 0%)",
+        y: 20,
       });
 
       const tl = gsap.timeline({
@@ -50,44 +64,39 @@ export function Work() {
         duration: 0.75,
         ease: "power3.inOut",
       });
+
+      t1Ref.current = gsap.timeline({ paused: true });
+
+      t1Ref.current
+        .to(expandProjectRef.current, {
+          rotate: 45,
+          duration: 1,
+          ease: "power1.inOut",
+        })
+        .to(
+          projectSummaryRef.current,
+          {
+            height: "35vh",
+            width: "100%",
+            opacity: 1,
+            duration: 1,
+            ease: "power1.inOut",
+          },
+          "<",
+        )
+        .to(splitSummary.lines, {
+          display: "block",
+          clipPath: "inset(0% 0% 0% 0%)",
+          y: 0,
+        });
     });
   }, []);
 
   useGSAP(() => {
-    gsap.set(".project-summary p", {
-      opacity: 0,
-      y: 20,
-    });
-
-    const t1 = gsap.timeline();
-
-    t1.to(expandProjectRef.current, {
-      rotate: toggleProject ? 45 : 0,
-      duration: 1,
-      ease: "power2.out",
-    })
-      .to(projectSummaryRef.current, {
-        height: toggleProject ? "35vh" : "5vh",
-        width: toggleProject ? "100%" : "5%",
-        opacity: toggleProject ? 1 : 0,
-        duration: 2,
-        ease: CustomEase.create(
-          "custom",
-          "M0,0 C0.095,0.027 0.39,-0.028 0.432,0.04 0.723,0.516 0.486,1 1,1 ",
-        ),
-      })
-      .to(
-        ".project-summary p",
-        {
-          delay: 2,
-          opacity: 1,
-          duration: 1,
-          y: 0,
-          ease: "power3.in",
-        },
-        "<",
-      );
+    if (!t1Ref.current) return;
+    toggleProject ? t1Ref.current.play() : t1Ref.current.reverse();
   }, [toggleProject]);
+
   return (
     <>
       <title>THE INKSPIRE STUDIO | WORK</title>
