@@ -152,6 +152,7 @@ import aboutPic1 from "../assets/pic/hero-pic-2.jpeg";
 import aboutPic2 from "../assets/pic/about-pic-1.png";
 import aboutPic3 from "../assets/pic/about-pic-2.png";
 import "./AboutPage.css";
+import { SectionHeading } from "../components/SectionHeading";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -263,7 +264,8 @@ export function AboutPage() {
   return (
     <>
       <div className="about-container" ref={aboutContainerRef}>
-        <h1>We are Inkspire Studio</h1>
+        {/* <h1>We are Inkspire Studio</h1> */}
+        <SectionHeading heading={"We are Inkspire Studio"} />
 
         <div className="about-grid">
           <div className="grid-content">

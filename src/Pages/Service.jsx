@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import { serviceWork } from "../constant/index.js";
 import "./Service.css";
+import { SectionHeading } from "../components/SectionHeading.jsx";
 
 gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase);
 
@@ -178,7 +179,7 @@ export function Service() {
     <>
       {serviceWork.map((work, i) => (
         <div key={i} className="service-container" ref={serviceContainerRef}>
-          {work.heading && <h1>{work.heading}</h1>}
+          {work.heading && <SectionHeading heading={work.heading} />}
           <div className="brand-heading">
             {work.brandHeading && <p>{work.brandHeading}</p>}
           </div>

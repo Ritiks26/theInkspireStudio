@@ -1,7 +1,8 @@
 .service-container {
   height: 100vh;
-  width: 100%;
+  width: calc(100% - 1rem);
   font-family: "almarena";
+  margin: 0 0.5rem;
 
   h1 {
     margin-bottom: 0.5rem;
