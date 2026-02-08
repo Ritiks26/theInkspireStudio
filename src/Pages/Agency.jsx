@@ -23,15 +23,6 @@ export function ImageComp({ img }) {
   );
 }
 
-function Video() {
-  return (
-    <video
-      className="player"
-      src="https://player.vimeo.com/progressive_redirect/playback/1137650282/rendition/2160p/file.mp4?loc=external&oauth2_token_id=1784145188&signature=76807a4aa2430afde498ae2863799fdbdde69521eb4d98abb7c5311c6e3c2ed8"
-    ></video>
-  );
-}
-
 export function Agency() {
   const clientsContainerRef = useRef(null);
   const galleryGridRef = useRef(null);
@@ -95,14 +86,14 @@ export function Agency() {
       img.addEventListener("mouseleave", mouseLeave);
     });
 
+    ScrollTrigger.refresh();
+
     return () => {
       imageRef.current.forEach((img, i) => {
         img.removeEventListener("mouseover", mouseOver);
         img.removeEventListener("mouseleave", mouseLeave);
       });
     };
-
-    ScrollTrigger.refresh();
   }, []);
 
   useGSAP(() => {
@@ -208,7 +199,7 @@ export function Agency() {
         const weProvide = sec.querySelectorAll(".we-provide");
 
         const splitExportHeading = SplitText.create(exportContentHeading, {
-          type: "lines, words",
+          type: "chars, lines, words",
         });
 
         const splitExportPara = SplitText.create(exportContentPara, {
@@ -220,7 +211,7 @@ export function Agency() {
           yPercent: 100,
         });
 
-        gsap.set(splitExportHeading.lines, {
+        gsap.set(splitExportHeading.chars, {
           clipPath: "inset(0% 0% 100% 0%)",
           yPercent: 100,
         });
@@ -248,17 +239,17 @@ export function Agency() {
           ease: "bpEase",
           // duration: 1,
         })
-          .to(splitExportHeading.lines, {
+          .to(splitExportHeading.chars, {
             clipPath: "inset(0% 0% 0% 0%)",
             yPercent: 0,
             ease: "bpEase",
-            // duration: 1,
+            stagger: 0.12,
+            duration: 1,
           })
           .to(splitExportPara.lines, {
             clipPath: "inset(0% 0% 0% 0%)",
             yPercent: 0,
             ease: "bpEase",
-            // duration: 1,
           })
           .to(
             weProvide,
@@ -333,6 +324,78 @@ export function Agency() {
     bookingLinkElem.addEventListener("mouseover", mouseOver);
     bookingLinkElem.addEventListener("mouseleave", mouseLeave);
   });
+
+  // useGSAP(() => {
+  //   const agencyWorkContainer = gsap.utils.toArray(".we-provide");
+
+  //   agencyWorkContainer.forEach((work) => {
+  //     const wrapper = work.querySelector(".agency-work-wrapper");
+
+  //     const mouseOver = () => {
+  //       gsap.to(wrapper, {
+  //         height: "100%",
+  //         ease: CustomEase.create("custom", "M0,0 C0.179,0.204 0.121,1 1,1 "),
+  //         duration: 0.25,
+  //       });
+  //     };
+
+  //     const mouseLeave = () => {
+  //       gsap.to(wrapper, {
+  //         height: "0%",
+  //         ease: CustomEase.create("custom", "M0,0 C0.179,0.204 0.121,1 1,1 "),
+  //         duration: 0.25,
+  //       });
+  //     };
+
+  //     work.addEventListener("mouseover", mouseOver);
+  //     work.addEventListener("mouseleave", mouseLeave);
+  //   });
+  // }, []);
+
+  useGSAP(() => {
+    const agencyWorkContainer = gsap.utils.toArray(".we-provide");
+
+    agencyWorkContainer.forEach((work) => {
+      const wrapper = work.querySelector(".agency-work-wrapper");
+      const text = work.querySelector("p");
+
+      gsap.set(".we-provide-container img", {
+        clipPath: "inset(0% 0% 100% 0%)",
+        y: 20,
+      });
+
+      const mouseOver = () => {
+        gsap.to(wrapper, {
+          height: "100%",
+          ease: "power3.inOut",
+        });
+        gsap.to(text, {
+          color: "white",
+          ease: "power3.inOut",
+        });
+        gsap.to(".we-provide-container img", {
+          clipPath: "inset(0% 0% 0% 0%)",
+          y: 0,
+        });
+      };
+
+      const mouseLeave = () => {
+        gsap.to(wrapper, {
+          height: "0%",
+        });
+        gsap.to(text, {
+          color: "black",
+        });
+        gsap.to(".we-provide-container img", {
+          clipPath: "inset(0% 0% 100% 0%)",
+          y: 20,
+        });
+      };
+
+      work.addEventListener("mouseenter", mouseOver);
+      work.addEventListener("mouseleave", mouseLeave);
+    });
+  }, []);
 
   return (
     <>
@@ -461,8 +524,6 @@ export function Agency() {
                 <div className="export-content">
                   <h1>01</h1>
                 </div>
-              </div>
-              <div className="export-grid-child">
                 <div className="planning-container">
                   <p>Strategic Planning</p>
                   <p>
@@ -472,17 +533,31 @@ export function Agency() {
                     discovery exercises across Brand, Business, and Tech.
                   </p>
                 </div>
-                {/* <div className="we-provide-container">
-                  <div className="we-provide">Lorem</div>
-                  <div className="we-provide">Lorem</div>
-                </div>
+              </div>
+              <div className="export-grid-child">
                 <div className="we-provide-container">
-                  <div className="we-provide">Lorem</div>
-                  <div className="we-provide">Lorem</div>
+                  <img src={imageCompo} alt="" />
+                  <div className="we-provide">
+                    <p> Discovery + Design Sprints</p>
+                    <div className="agency-work-wrapper"></div>
+                  </div>
+                  <div className="we-provide">
+                    <p>Research, Analytics, & Insights</p>{" "}
+                    <div className="agency-work-wrapper"></div>
+                  </div>
+                  <div className="we-provide">
+                    <p>Positioning Strategy</p>{" "}
+                    <div className="agency-work-wrapper"></div>
+                  </div>
+                  <div className="we-provide">
+                    <p>User / Audience Definition</p>{" "}
+                    <div className="agency-work-wrapper"></div>
+                  </div>
+                  <div className="we-provide">
+                    <p>Product Requirements</p>{" "}
+                    <div className="agency-work-wrapper"></div>
+                  </div>
                 </div>
-                <div className="we-provide-container">
-                  <div className="we-provide">Lorem</div>
-                </div> */}
               </div>
             </div>
           </div>
