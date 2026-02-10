@@ -86,6 +86,13 @@ export const ourExports = [
       "User / Audience Definition",
       "Product Requirements",
     ],
+    images: [
+      "https://cdn.prod.website-files.com/664dc8b6bc52b504509197f0/67b89d9110d0a5d6615f273a_umaultAwards-p-1080.png",
+      "https://plus.unsplash.com/premium_photo-1701091956254-8f24ea99a53b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZGFya3xlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1509023464722-18d996393ca8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGFya3xlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1475070929565-c985b496cb9f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZGFya3xlbnwwfHwwfHx8MA%3D%3D",
+      "https://plus.unsplash.com/premium_photo-1720741636456-93230da797ea?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZGFya3xlbnwwfHwwfHx8MA%3D%3D",
+    ],
   },
   {
     exportCount: "02",
@@ -100,6 +107,14 @@ export const ourExports = [
       "Design Systems + Style Guides",
       "Prototyping & Optimization",
     ],
+
+    images: [
+      "https://images.unsplash.com/photo-1504903271097-d7e7c7f5f7ad?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZGFya3xlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1511406361295-0a1ff814c0ce?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGRhcmt8ZW58MHx8MHx8fDA%3D",
+      "https://images.unsplash.com/photo-1659469377768-4f42f2f091c5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z3JhZGllbnQlMjBkYXJrfGVufDB8fDB8fHww",
+      "https://images.unsplash.com/photo-1645724298070-c30a506ec96f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGdyYWRpZW50JTIwZGFya3xlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1644970609326-1ae1923ed950?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fGdyYWRpZW50JTIwZGFya3xlbnwwfHwwfHx8MA%3D%3D",
+    ],
   },
   {
     exportCount: "03",
@@ -113,6 +128,14 @@ export const ourExports = [
       "Application Development",
       "CMS Implementation",
       "Quality Assurance",
+    ],
+
+    images: [
+      "https://plus.unsplash.com/premium_photo-1678935941883-2506cc2d4ddd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fGdyYWRpZW50JTIwZGFya3xlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1645923174773-e8ccd45aeae2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTB8fGdyYWRpZW50JTIwZGFya3xlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1755593574938-6d66d28f8e57?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODd8fGdyYWRpZW50JTIwZGFya3xlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1763624828262-190e5a2647f8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODB8fGdyYWRpZW50JTIwZGFya3xlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1657403538510-1b324c4c1c8d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTZ8fGdyYWRpZW50JTIwZGFya3xlbnwwfHwwfHx8MA%3D%3D",
     ],
   },
 ];

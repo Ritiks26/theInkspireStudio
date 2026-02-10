@@ -27,9 +27,11 @@ export function Agency() {
   const clientsContainerRef = useRef(null);
   const galleryGridRef = useRef(null);
   const imageRef = useRef([]);
+  const agencyContainerRef = useRef(null);
   const bookingLinkRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const content = imagesArray[activeIndex];
+  const [imageActiveIndex, setImageActiveIndex] = useState(0);
 
   useGSAP(() => {
     const grid = galleryGridRef.current;
@@ -90,8 +92,8 @@ export function Agency() {
 
     return () => {
       imageRef.current.forEach((img, i) => {
-        img.removeEventListener("mouseover", mouseOver);
-        img.removeEventListener("mouseleave", mouseLeave);
+        img.removeEventListener("mouseover", () => mouseOver(i));
+        img.removeEventListener("mouseleave", () => mouseLeave);
       });
     };
   }, []);
@@ -157,7 +159,7 @@ export function Agency() {
       gsap.to(splitOurMessage.lines, {
         clipPath: "inset(0% 0% 0% 0%)",
         yPercent: 0,
-        duration: 2,
+        duration: 1,
         ease: "bpEase",
         scrollTrigger: {
           trigger: ".our-message-child",
@@ -263,7 +265,7 @@ export function Agency() {
           );
       });
     });
-  });
+  }, []);
 
   useGSAP(() => {
     const bookingLinkElem = bookingLinkRef.current;
@@ -323,77 +325,41 @@ export function Agency() {
 
     bookingLinkElem.addEventListener("mouseover", mouseOver);
     bookingLinkElem.addEventListener("mouseleave", mouseLeave);
-  });
-
-  // useGSAP(() => {
-  //   const agencyWorkContainer = gsap.utils.toArray(".we-provide");
-
-  //   agencyWorkContainer.forEach((work) => {
-  //     const wrapper = work.querySelector(".agency-work-wrapper");
-
-  //     const mouseOver = () => {
-  //       gsap.to(wrapper, {
-  //         height: "100%",
-  //         ease: CustomEase.create("custom", "M0,0 C0.179,0.204 0.121,1 1,1 "),
-  //         duration: 0.25,
-  //       });
-  //     };
-
-  //     const mouseLeave = () => {
-  //       gsap.to(wrapper, {
-  //         height: "0%",
-  //         ease: CustomEase.create("custom", "M0,0 C0.179,0.204 0.121,1 1,1 "),
-  //         duration: 0.25,
-  //       });
-  //     };
-
-  //     work.addEventListener("mouseover", mouseOver);
-  //     work.addEventListener("mouseleave", mouseLeave);
-  //   });
-  // }, []);
+  }, []);
 
   useGSAP(() => {
-    const agencyWorkContainer = gsap.utils.toArray(".we-provide");
+    const agencyContainer = gsap.utils.toArray(".export-types");
 
-    agencyWorkContainer.forEach((work) => {
-      const wrapper = work.querySelector(".agency-work-wrapper");
-      const text = work.querySelector("p");
+    agencyContainer.forEach((container, i) => {
+      const weProvide = container.querySelectorAll(".we-provide");
 
-      gsap.set(".we-provide-container img", {
-        clipPath: "inset(0% 0% 100% 0%)",
-        y: 20,
-      });
+      const agencyImage = container.querySelector(".agency-image");
 
-      const mouseOver = () => {
-        gsap.to(wrapper, {
-          height: "100%",
-          ease: "power3.inOut",
-        });
-        gsap.to(text, {
-          color: "white",
-          ease: "power3.inOut",
-        });
-        gsap.to(".we-provide-container img", {
-          clipPath: "inset(0% 0% 0% 0%)",
-          y: 0,
-        });
-      };
-
-      const mouseLeave = () => {
-        gsap.to(wrapper, {
-          height: "0%",
-        });
-        gsap.to(text, {
-          color: "black",
-        });
-        gsap.to(".we-provide-container img", {
+      weProvide.forEach((provide, i) => {
+        gsap.set(agencyImage, {
           clipPath: "inset(0% 0% 100% 0%)",
           y: 20,
         });
-      };
 
-      work.addEventListener("mouseenter", mouseOver);
-      work.addEventListener("mouseleave", mouseLeave);
+        const mouseOver = (i) => {
+          gsap.to(agencyImage, {
+            clipPath: "inset(0% 0% 0% 0%)",
+            y: 0,
+          });
+
+          setImageActiveIndex(i);
+        };
+
+        const mouseLeave = () => {
+          gsap.to(agencyImage, {
+            clipPath: "inset(0% 0% 100% 0%)",
+            y: -20,
+          });
+        };
+
+        provide.addEventListener("mouseenter", () => mouseOver(i));
+        provide.addEventListener("mouseleave", () => mouseLeave(i));
+      });
     });
   }, []);
 
@@ -473,95 +439,45 @@ export function Agency() {
           </div>
         </div>
 
-        {/* <div className="our-exports-container">
+        <div className="our-exports-container">
           <div className="heading-container">
-            <ul>
-              <li>OUR CHEIF EXPORTS</li>
-            </ul>
+            <SectionHeading heading={"our cheif exports"} />
           </div>
-
-          {ourExports.map((ourExport, i) => (
+          {ourExports.map((work, i) => (
             <div key={i} className="export-types">
-              <div className="export-count">
-                <p>{ourExport.exportCount}</p>
-              </div>
-
               <div className="export-grid">
                 <div className="export-grid-child">
                   <div className="export-content">
-                    <h1>{ourExport.exportType}</h1>
-                    <p>{ourExport.exportContent}</p>
+                    <h1>{work.exportCount}</h1>
+                  </div>
+                  <div className="planning-container">
+                    <p>{work.exportType}</p>
+                    <p>{work.exportContent}</p>
                   </div>
                 </div>
                 <div className="export-grid-child">
-                  <div className="we-provide-container">
-                    <div className="we-provide">{ourExport.weProvide[0]}</div>
-                    <div className="we-provide">{ourExport.weProvide[1]}</div>
-                  </div>
-                  <div className="we-provide-container">
-                    <div className="we-provide">{ourExport.weProvide[2]}</div>
-                    <div className="we-provide">{ourExport.weProvide[3]}</div>
-                  </div>
-                  <div className="we-provide-container">
-                    <div className="we-provide">{ourExport.weProvide[4]}</div>
+                  <div
+                    className="we-provide-container"
+                    ref={agencyContainerRef}
+                  >
+                    <img
+                      className="agency-image"
+                      src={work.images[imageActiveIndex]}
+                      alt=""
+                    />
+                    {work.weProvide.map((provide, i) => (
+                      <div key={i} className="we-provide">
+                        <p>{provide}</p>
+                        <div className="agency-work-wrapper"></div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
             </div>
           ))}
-        </div> */}
-
-        <div className="our-exports-container">
-          <div className="heading-container">
-            <SectionHeading heading={"our cheif exports"} />
-
-            {/* <h1>OUR CHEIF EXPORTS</h1> */}
-          </div>
-
-          <div className="export-types">
-            <div className="export-grid">
-              <div className="export-grid-child">
-                <div className="export-content">
-                  <h1>01</h1>
-                </div>
-                <div className="planning-container">
-                  <p>Strategic Planning</p>
-                  <p>
-                    Great outcomes start with us codifying what you do, how and
-                    why you do it, and where growth can occur. We work to answer
-                    these questions through interviews, workshops, and other
-                    discovery exercises across Brand, Business, and Tech.
-                  </p>
-                </div>
-              </div>
-              <div className="export-grid-child">
-                <div className="we-provide-container">
-                  <img src={imageCompo} alt="" />
-                  <div className="we-provide">
-                    <p> Discovery + Design Sprints</p>
-                    <div className="agency-work-wrapper"></div>
-                  </div>
-                  <div className="we-provide">
-                    <p>Research, Analytics, & Insights</p>{" "}
-                    <div className="agency-work-wrapper"></div>
-                  </div>
-                  <div className="we-provide">
-                    <p>Positioning Strategy</p>{" "}
-                    <div className="agency-work-wrapper"></div>
-                  </div>
-                  <div className="we-provide">
-                    <p>User / Audience Definition</p>{" "}
-                    <div className="agency-work-wrapper"></div>
-                  </div>
-                  <div className="we-provide">
-                    <p>Product Requirements</p>{" "}
-                    <div className="agency-work-wrapper"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
+
         <div className="clients-container" ref={clientsContainerRef}>
           <h1 className="agency-heading">Our Clients</h1>
           <div className="clients-work-grid">

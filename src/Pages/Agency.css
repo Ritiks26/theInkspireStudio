@@ -497,7 +497,6 @@
     font-size: clamp(2.75rem, 1.8214rem + 4.6429vw, 6rem);
     text-align: left;
     text-transform: uppercase;
-    /* font-family: "almarena"; */
     font-family: var(--font-3);
     font-weight: 500;
     width: 50%;
@@ -508,7 +507,7 @@
   }
 }
 
-/* .export-types {
+.export-types {
   .export-count {
     margin: 1.5rem 0;
     p {
@@ -520,20 +519,40 @@
 
   .export-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     margin-bottom: 6rem;
+    align-items: start;
 
     @media (width < 1028px) {
       grid-template-columns: repeat(1, 1fr);
     }
 
     .export-grid-child {
-      border-top: 1px solid lightgray;
-      padding: 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+
+      .planning-container {
+        p {
+          font-family: var(--font-2);
+          font-weight: 500;
+          width: 90%;
+
+          &:nth-child(2) {
+            font-size: 1.15rem;
+            margin: 1rem 0;
+          }
+        }
+      }
 
       .export-content {
         h1 {
+          font-size: 5rem;
           font-weight: 500;
+          text-align: left;
+          margin: 0;
+          padding: 0;
+          line-height: 1;
         }
 
         p {
@@ -546,32 +565,76 @@
       }
 
       .we-provide-container {
+        position: relative;
         display: flex;
-        gap: 0.25rem;
-        margin: 0.25rem 0;
+        flex-direction: column;
 
         @media (width < 640px) {
           flex-direction: column;
           width: fit-content;
         }
 
-        .we-provide {
-          font-size: clamp(1rem, 0.9714rem + 0.1429vw, 1.1rem);
-          font-weight: 500;
-          text-wrap: nowrap;
+        img {
+          position: absolute;
+          height: 150px;
+          width: 100px;
+          z-index: 10;
+          top: 50%;
+          left: 90%;
+          transform: translate(-90%, -50%);
+        }
 
-          background-color: whitesmoke;
+        .we-provide {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          border-top: 1px solid rgb(0, 0, 0);
+          position: relative;
+          font-size: clamp(1rem, 0.9714rem + 0.1429vw, 1.1rem);
+          text-wrap: nowrap;
+          color: var(--font-black);
+          font-size: 0.9rem;
+          font-weight: 600;
+          font-family: var(--font-2);
           padding: 0.75rem 1.5rem;
-          border-radius: 2rem;
+          cursor: pointer;
+
+          &:nth-child(6) {
+            border-bottom: 1px solid rgb(0, 0, 0);
+          }
+
+          p {
+            font-size: 0.65rem;
+            position: relative;
+            z-index: 10;
+            text-transform: uppercase;
+          }
+
+          .agency-work-wrapper {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 0%;
+            width: 100%;
+            background-color: #000;
+            color: white;
+            transition: all 0.5s cubic-bezier(0.213, 0.748, 0.493, 0.881);
+          }
+        }
+
+        .we-provide:hover .agency-work-wrapper {
+          height: 100%;
+        }
+
+        .we-provide:hover {
+          p {
+            color: white;
+          }
         }
       }
     }
-
-    .export-grid-child:nth-child(2) {
-      border-top: 1px solid black;
-    }
   }
-} */
+}
 
 .clients-container {
   font-family: "almarena";
@@ -651,147 +714,5 @@
     font-family: "almarena";
     font-size: 1.1rem;
     line-height: 1.2;
-  }
-}
-
-/***h***/
-
-.heading-container {
-  h1 {
-    font-size: clamp(2.75rem, 1.8214rem + 4.6429vw, 6rem);
-    text-align: left;
-    text-transform: uppercase;
-    /* font-family: "almarena"; */
-    font-family: var(--font-3);
-    font-weight: 500;
-    width: 50%;
-
-    @media (width < 640px) {
-      width: 80%;
-    }
-  }
-}
-
-.export-types {
-  .export-count {
-    margin: 1.5rem 0;
-    p {
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: gray;
-    }
-  }
-
-  .export-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-bottom: 6rem;
-    /* border: 1px solid; */
-    align-items: start;
-
-    @media (width < 1028px) {
-      grid-template-columns: repeat(1, 1fr);
-    }
-
-    .export-grid-child {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-
-      .planning-container {
-        p {
-          font-family: var(--font-2);
-          font-weight: 500;
-          width: 90%;
-
-          &:nth-child(2) {
-            font-size: 1.15rem;
-            margin: 1rem 0;
-          }
-        }
-      }
-
-      .export-content {
-        h1 {
-          font-size: 5rem;
-          font-weight: 500;
-          text-align: left;
-          margin: 0;
-          padding: 0;
-          line-height: 1;
-        }
-
-        p {
-          margin-top: 1rem;
-          font-size: clamp(1.25rem, 1.1786rem + 0.3571vw, 1.5rem);
-          font-weight: 500;
-          width: 90%;
-          color: rgb(88, 88, 88);
-        }
-      }
-
-      .we-provide-container {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        /* gap: 0.25rem; */
-        /* margin: 0.25rem 0; */
-
-        @media (width < 640px) {
-          flex-direction: column;
-          width: fit-content;
-        }
-
-        img {
-          position: absolute;
-          height: 90px;
-          width: 90px;
-          z-index: 10;
-          top: 50%;
-          left: 90%;
-          transform: translate(-90%, -50%);
-        }
-
-        .we-provide {
-          border-top: 1px solid gray;
-          position: relative;
-          font-size: clamp(1rem, 0.9714rem + 0.1429vw, 1.1rem);
-          text-wrap: nowrap;
-          text-align: center;
-          color: var(--font-black);
-          font-size: 0.9rem;
-          font-weight: 600;
-          font-family: var(--font-2);
-          padding: 0.75rem 1.5rem;
-          cursor: pointer;
-
-          p {
-            position: relative;
-            z-index: 10;
-          }
-
-          .agency-work-wrapper {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            height: 0%;
-            width: 100%;
-            background-color: #000;
-            color: white;
-            transition: all 0.35s ease-in-out;
-          }
-        }
-
-        /* .we-provide:hover .agency-work-wrapper {
-          height: 100%;
-        }
-
-        .we-provide:hover {
-          p {
-            color: white;
-          }
-        } */
-      }
-    }
   }
 }
