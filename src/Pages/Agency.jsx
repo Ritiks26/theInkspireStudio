@@ -188,82 +188,6 @@ export function Agency() {
           start: "top 75%",
         },
       });
-
-      const section = gsap.utils.toArray(".export-types");
-
-      section.forEach((sec) => {
-        const count = sec.querySelectorAll(".export-count");
-
-        const exportContentHeading = sec.querySelectorAll(".export-content h1");
-
-        const exportContentPara = sec.querySelectorAll(".export-content p");
-
-        const weProvide = sec.querySelectorAll(".we-provide");
-
-        const splitExportHeading = SplitText.create(exportContentHeading, {
-          type: "chars, lines, words",
-        });
-
-        const splitExportPara = SplitText.create(exportContentPara, {
-          type: "lines, words",
-        });
-
-        gsap.set(count, {
-          clipPath: "inset(0% 0% 100% 0%)",
-          yPercent: 100,
-        });
-
-        gsap.set(splitExportHeading.chars, {
-          clipPath: "inset(0% 0% 100% 0%)",
-          yPercent: 100,
-        });
-
-        gsap.set(splitExportPara.lines, {
-          clipPath: "inset(0% 0% 100% 0%)",
-          yPercent: 100,
-        });
-
-        gsap.set(weProvide, {
-          clipPath: "inset(0% 0% 100% 0%)",
-          yPercent: 100,
-        });
-
-        const t2 = gsap.timeline({
-          scrollTrigger: {
-            trigger: sec,
-            start: "top 75%",
-          },
-        });
-
-        t2.to(count, {
-          clipPath: "inset(0% 0% 0% 0%)",
-          yPercent: 0,
-          ease: "bpEase",
-          // duration: 1,
-        })
-          .to(splitExportHeading.chars, {
-            clipPath: "inset(0% 0% 0% 0%)",
-            yPercent: 0,
-            ease: "bpEase",
-            stagger: 0.12,
-            duration: 1,
-          })
-          .to(splitExportPara.lines, {
-            clipPath: "inset(0% 0% 0% 0%)",
-            yPercent: 0,
-            ease: "bpEase",
-          })
-          .to(
-            weProvide,
-            {
-              clipPath: "inset(0% 0% 0% 0%)",
-              yPercent: 0,
-              ease: "bpEase",
-              // duration: 1,
-            },
-            "<",
-          );
-      });
     });
   }, []);
 
@@ -334,6 +258,51 @@ export function Agency() {
       const weProvide = container.querySelectorAll(".we-provide");
 
       const agencyImage = container.querySelector(".agency-image");
+
+      const exportCount = container.querySelectorAll(".export-count");
+
+      const agencyContent = container.querySelectorAll(".planning-container");
+
+      document.fonts.ready.then(() => {
+        const splitExportCount = SplitText.create(exportCount, {
+          type: "chars, words, lines",
+        });
+
+        const splitAgencyContent = SplitText.create(agencyContent, {
+          type: "chars, words, lines",
+        });
+
+        gsap.set(splitExportCount.chars, {
+          clipPath: "inset(0% 0% 100% 0%)",
+          yPercent: 100,
+        });
+
+        gsap.set(splitAgencyContent.lines, {
+          clipPath: "inset(0% 0% 100% 0%)",
+          yPercent: 80,
+        });
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: container,
+            start: "top 75%",
+            end: "+=300%",
+          },
+        });
+
+        tl.to(splitExportCount.chars, {
+          clipPath: "inset(0% 0% 0% 0%)",
+          yPercent: 0,
+          ease: "bpEase",
+          stagger: 0.12,
+          duration: 0.75,
+        }).to(splitAgencyContent.lines, {
+          clipPath: "inset(0% 0% 0% 0%)",
+          yPercent: 0,
+          ease: "bpEase",
+          duration: 0.75,
+        });
+      });
 
       weProvide.forEach((provide, i) => {
         gsap.set(agencyImage, {
@@ -447,7 +416,7 @@ export function Agency() {
             <div key={i} className="export-types">
               <div className="export-grid">
                 <div className="export-grid-child">
-                  <div className="export-content">
+                  <div className="export-count">
                     <h1>{work.exportCount}</h1>
                   </div>
                   <div className="planning-container">
