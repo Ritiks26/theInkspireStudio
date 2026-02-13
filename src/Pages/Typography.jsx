@@ -2,18 +2,22 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import CustomEase from "gsap/CustomEase";
 import { ImageComp } from "./Agency";
+import { useRef } from "react";
 import { SectionHeading } from "../components/SectionHeading";
 import { typography } from "../constant";
 import imageCompo from "../assets/pic/hero-pic-2.jpeg";
+import imageCompoSecond from "../assets/pic/hero-pic-3.jpeg";
 import "./Typography.css";
 
 gsap.registerPlugin(CustomEase);
 
+CustomEase.create("bpEase", "M0,0 C0.25,0.1 0.35,1 1,1");
+
 export function Typography() {
+  const typographyContainerRef = useRef(null);
   useGSAP(() => {
     if (window.innerWidth >= 1024) {
       const fontChild = gsap.utils.toArray(".font-child");
-
       fontChild.forEach((container) => {
         const fontWrapper = container.querySelectorAll(".font-wrapper");
 
@@ -25,6 +29,8 @@ export function Typography() {
 
         const wrapperContainer =
           container.querySelectorAll(".wrapper-container");
+
+        const marqueeWrapper = container.querySelectorAll(".marquee-wrapper");
 
         gsap.set(wrapperText, {
           opacity: 0,
@@ -46,6 +52,14 @@ export function Typography() {
           y: 100,
         });
 
+        const marqueeAnim = gsap.to(marqueeWrapper, {
+          xPercent: -50,
+          ease: "none",
+          duration: 8,
+          repeat: -1,
+          paused: true,
+        });
+
         container.addEventListener("mouseenter", () => {
           gsap.to(fontWrapper, {
             height: "100%",
@@ -54,6 +68,8 @@ export function Typography() {
               "M0,0 C0.064,0.964 0.353,0.913 1,1 ",
             ),
           });
+
+          marqueeAnim.play();
 
           gsap.to(wrapperText, {
             opacity: 1,
@@ -81,6 +97,8 @@ export function Typography() {
             height: "0%",
           });
 
+          marqueeAnim.pause();
+
           gsap.to(wrapperText, {
             opacity: 0,
             y: 100,
@@ -103,10 +121,51 @@ export function Typography() {
         });
       });
     }
-  });
+
+    const fontChild = gsap.utils.toArray(".font-child");
+
+    fontChild.forEach((container, i) => {
+      const fontName = container.querySelectorAll(".font-name");
+
+      const fontWeight = container.querySelectorAll(".font-weight");
+
+      gsap.set(fontName, {
+        clipPath: "inset(0% 0% 100% 0%)",
+        yPercent: 100,
+      });
+
+      gsap.set(fontWeight, {
+        clipPath: "inset(0% 0% 100% 0%)",
+        yPercent: 100,
+      });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: typographyContainerRef.current,
+          start: "top 65%",
+        },
+      });
+
+      tl.to(fontName, {
+        clipPath: "inset(0% 0% 0% 0%)",
+        yPercent: 0,
+        ease: "bpEase",
+        duration: 1,
+      }).to(
+        fontWeight,
+        {
+          clipPath: "inset(0% 0% 0% 0%)",
+          yPercent: 0,
+          ease: "bpEase",
+          duration: 1,
+        },
+        "<",
+      );
+    });
+  }, []);
   return (
     <>
-      <div className="typography-container">
+      <div className="typography-container" ref={typographyContainerRef}>
         <SectionHeading heading={"typography & colors"} />
         <div className="typography-child">
           <div className="fonts-container">
@@ -114,38 +173,48 @@ export function Typography() {
               <>
                 <div className="font-child">
                   <h1 className="font-name">{typo.fontName}</h1>
-                  <p>{typo.fontWeight}</p>
+                  <p className="font-weight">{typo.fontWeight}</p>
                   <div className="font-wrapper">
-                    <p className="wrapper-text">{typo.wrapperText}</p>
-
-                    <div className="chars-example">
-                      <p>
-                        Bb{" "}
-                        <ImageComp
-                          img={
-                            "https://images.unsplash.com/photo-1499428665502-503f6c608263?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTIxfHxkYXJrfGVufDB8fDB8fHww"
-                          }
-                        />
+                    <div className="marquee-wrapper">
+                      <p className="wrapper-text">
+                        {typo.wrapperTextAa} <ImageComp img={imageCompo} />
                       </p>
-                    </div>
-                    <div className="chars-example">
-                      <p>01</p>
-                    </div>
-                    <div className="chars-example">
-                      <p>23</p>
-                    </div>
-                    <div className="chars-example">
-                      <p>45</p>
-                    </div>
-                    <div className="chars-example">
-                      <p>67</p>
-                    </div>
-                    <div className="chars-example">
-                      <p>89</p>
-                    </div>
 
-                    <div className="wrapper-container">
-                      <p>{typo.wrapperContent}</p>
+                      <div className="wrapper-container">
+                        <p>{typo.wrapperContent}</p>
+                      </div>
+
+                      {/* duplicate */}
+
+                      <p className="wrapper-text">
+                        {typo.wrapperTextAa}{" "}
+                        <ImageComp img={imageCompoSecond} />
+                      </p>
+
+                      <div className="wrapper-container">
+                        <p>{typo.wrapperContent}</p>
+                      </div>
+
+                      {/* duplicate */}
+
+                      <p className="wrapper-text">
+                        {typo.wrapperTextAa} <ImageComp img={imageCompo} />
+                      </p>
+
+                      <div className="wrapper-container">
+                        <p>{typo.wrapperContent}</p>
+                      </div>
+
+                      {/* duplicate */}
+
+                      <p className="wrapper-text">
+                        {typo.wrapperTextAa}{" "}
+                        <ImageComp img={imageCompoSecond} />
+                      </p>
+
+                      <div className="wrapper-container">
+                        <p>{typo.wrapperContent}</p>
+                      </div>
                     </div>
                   </div>
                 </div>

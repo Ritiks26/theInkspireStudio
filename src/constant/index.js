@@ -284,26 +284,26 @@ export const workData = [
 export const typography = [
   {
     fontName: "satoshi",
-    wrapperText: "Aa",
+    wrapperTextAa: "Aa",
     fontWeight: "light",
-    wrapperContent: "Typography shapes how users feel about a brand",
+    wrapperContent: "Typography shapes how users feel about a brand. |",
   },
   {
     fontName: "almarena",
-    wrapperText: "Aa",
+    wrapperTextAa: "Aa",
     fontWeight: "semibold",
-    wrapperContent: "Good typography feels effortless and easy to scan.",
+    wrapperContent: "Good typography feels effortless and easy to scan. |",
   },
   {
     fontName: "general sans",
-    wrapperText: "Aa",
+    wrapperTextAa: "Aa",
     fontWeight: "light",
-    wrapperContent: "Proper alignment makes the layout look organized.",
+    wrapperContent: "Proper alignment makes the layout look organized. |",
   },
   {
     fontName: "clash display",
-    wrapperText: "Aa",
+    wrapperTextAa: "Aa",
     fontWeight: "regular",
-    wrapperContent: "Strong headings create visual direction.",
+    wrapperContent: "Strong headings create visual direction. |",
   },
 ];
