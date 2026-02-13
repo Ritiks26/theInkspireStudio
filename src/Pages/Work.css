@@ -27,6 +27,7 @@
 }
 
 .project-container {
+  margin-bottom: 2rem;
   width: 100%;
 
   h1 {
@@ -123,9 +124,4 @@
 
 .project-grid-child:nth-child(7) {
   background-image: url("https://framerusercontent.com/images/ohpZOwAr4YvEEnVjb10iAIMj6w.jpg?width=3000&height=2077");
-}
-
-.work-para {
-  background-color: red;
-  width: 100%;
 }

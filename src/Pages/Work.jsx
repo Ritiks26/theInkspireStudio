@@ -4,6 +4,7 @@ import { CustomEase } from "gsap/CustomEase";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import { useRef, useState } from "react";
+import { workData } from "../constant";
 import "./Work.css";
 
 gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase);
@@ -14,81 +15,175 @@ export function Work() {
   const projectSummaryRef = useRef(null);
   const t1Ref = useRef(null);
 
+  // useGSAP(() => {
+  //   const projectContainer = gsap.utils.toArray(".project-container");
+
+  //   projectContainer.forEach((container, i) => {
+  //     const viewSummary = container.querySelectorAll(".expand-project");
+
+  //     const summaryContainer = container.querySelectorAll(".project-summary");
+
+  //     const summaryProjectText =
+  //       container.querySelectorAll(".project-summary p");
+
+  //     document.fonts.ready.then(() => {
+  //       const splitHeroText = SplitText.create(".work-hero p", {
+  //         type: "chars, lines",
+  //       });
+
+  //       const splitSummary = SplitText.create(summaryProjectText, {
+  //         type: "chars, lines",
+  //       });
+
+  //       gsap.set(splitHeroText.lines, {
+  //         clipPath: "inset(0% 0% 100% 0%)",
+  //         y: 20,
+  //       });
+
+  //       gsap.set(".project-container", {
+  //         opacity: 0,
+  //         y: 20,
+  //       });
+
+  //       gsap.set(summaryContainer, {
+  //         height: "80px",
+  //         width: "80px",
+  //         opacity: 0,
+  //       });
+
+  //       gsap.set(splitSummary.lines, {
+  //         display: "none",
+  //         clipPath: "inset(0% 0% 100% 0%)",
+  //         y: 20,
+  //       });
+
+  //       const tl = gsap.timeline({
+  //         delay: 0.75,
+  //       });
+
+  //       tl.to(splitHeroText.lines, {
+  //         clipPath: "inset(0% 0% 0% 0%)",
+  //         y: 0,
+  //         duration: 1.5,
+  //         ease: "power3.inOut",
+  //       }).to(projectContainer, {
+  //         opacity: 1,
+  //         y: 0,
+  //         duration: 0.75,
+  //         ease: "power3.inOut",
+  //       });
+
+  //       t1Ref.current = gsap.timeline({ paused: true });
+
+  //       t1Ref.current
+  //         .to(viewSummary, {
+  //           rotate: 45,
+  //           duration: 1,
+  //           ease: "power1.inOut",
+  //         })
+  //         .to(
+  //           summaryContainer,
+  //           {
+  //             height: "50vh",
+  //             width: "100%",
+  //             opacity: 1,
+  //             duration: 1,
+  //             ease: "power1.inOut",
+  //           },
+  //           "<",
+  //         )
+  //         .to(splitSummary.lines, {
+  //           display: "block",
+  //           clipPath: "inset(0% 0% 0% 0%)",
+  //           y: 0,
+  //         });
+  //     });
+  //   });
+  // }, []);
+
   useGSAP(() => {
-    document.fonts.ready.then(() => {
-      const summarizedProject = projectSummaryRef.current;
-      const projectSummary = summarizedProject.querySelector("p");
+    const projectContainer = gsap.utils.toArray(".project-container");
 
-      const splitHeroText = SplitText.create(".work-hero p", {
-        type: "chars, lines",
-      });
+    projectContainer.forEach((container, i) => {
+      const viewSummary = container.querySelectorAll(".expand-project");
 
-      const splitSummary = SplitText.create(projectSummary, {
-        type: "chars, lines",
-      });
+      const summaryContainer = container.querySelectorAll(".project-summary");
 
-      gsap.set(splitHeroText.lines, {
-        clipPath: "inset(0% 0% 100% 0%)",
-        y: 20,
-      });
+      const summaryProjectText =
+        container.querySelectorAll(".project-summary p");
 
-      gsap.set(".project-container", {
-        opacity: 0,
-        y: 20,
-      });
+      document.fonts.ready.then(() => {
+        const splitHeroText = SplitText.create(".work-hero p", {
+          type: "chars, lines",
+        });
 
-      gsap.set(projectSummaryRef.current, {
-        height: "80px",
-        width: "80px",
-        opacity: 0,
-      });
+        const splitSummary = SplitText.create(summaryProjectText, {
+          type: "chars, lines",
+        });
 
-      gsap.set(splitSummary.lines, {
-        display: "none",
-        clipPath: "inset(0% 0% 100% 0%)",
-        y: 20,
-      });
+        gsap.set(splitHeroText.lines, {
+          clipPath: "inset(0% 0% 100% 0%)",
+          y: 20,
+        });
 
-      const tl = gsap.timeline({
-        delay: 0.75,
-      });
+        gsap.set(".project-container", {
+          opacity: 0,
+          y: 20,
+        });
 
-      tl.to(splitHeroText.lines, {
-        clipPath: "inset(0% 0% 0% 0%)",
-        y: 0,
-        duration: 1.5,
-        ease: "power3.inOut",
-      }).to(".project-container", {
-        opacity: 1,
-        y: 0,
-        duration: 0.75,
-        ease: "power3.inOut",
-      });
+        gsap.set(summaryContainer, {
+          height: "80px",
+          width: "80px",
+          opacity: 0,
+        });
 
-      t1Ref.current = gsap.timeline({ paused: true });
+        gsap.set(splitSummary.lines, {
+          display: "none",
+          clipPath: "inset(0% 0% 100% 0%)",
+          y: 20,
+        });
 
-      t1Ref.current
-        .to(expandProjectRef.current, {
-          rotate: 45,
-          duration: 1,
-          ease: "power1.inOut",
-        })
-        .to(
-          projectSummaryRef.current,
-          {
-            height: "35vh",
-            width: "100%",
-            opacity: 1,
-            duration: 1,
-            ease: "power1.inOut",
-          },
-          "<",
-        )
-        .to(splitSummary.lines, {
-          display: "block",
+        const tl = gsap.timeline({
+          delay: 0.75,
+        });
+
+        tl.to(splitHeroText.lines, {
           clipPath: "inset(0% 0% 0% 0%)",
           y: 0,
+          duration: 1.5,
+          ease: "power3.inOut",
+        }).to(projectContainer, {
+          opacity: 1,
+          y: 0,
+          duration: 0.75,
+          ease: "power3.inOut",
         });
+
+        t1Ref.current = gsap.timeline({ paused: true });
+
+        t1Ref.current
+          .to(viewSummary, {
+            rotate: 45,
+            duration: 1,
+            ease: "power1.inOut",
+          })
+          .to(
+            summaryContainer,
+            {
+              height: "50vh",
+              width: "100%",
+              opacity: 1,
+              duration: 1,
+              ease: "power1.inOut",
+            },
+            "<",
+          )
+          .to(splitSummary.lines, {
+            display: "block",
+            clipPath: "inset(0% 0% 0% 0%)",
+            y: 0,
+          });
+      });
     });
   }, []);
 
@@ -109,69 +204,66 @@ export function Work() {
           </p>
           <p>Open for new projects.</p>
         </div>
-        <div className="project-container">
-          <h1>
-            Polestar, <span style={{ color: "gray" }}>4, 2025</span>
-            <span
-              className="expand-project"
-              ref={expandProjectRef}
-              onClick={() => setToggleProject(!toggleProject)}
-            >
-              +
-            </span>
-          </h1>
-          <div className="project-grid">
-            <div className="project-summary" ref={projectSummaryRef}>
-              <p>
-                The Polestar series of electric cars is a Scandinavian piece of
-                art. While websites these days are more or less similar, I
-                wanted to experiment and create a user experience design and
-                visuals using CGI with Unreal Engine power, especially for
-                online car configurator.
-              </p>
-            </div>
-            <div className="project-grid-child">
-              <video
-                playsInline
-                autoPlay
-                muted
-                loop
-                src="https://framerusercontent.com/assets/Qrk0elN6Z8hA6jP8kW616C0MCWA.mp4"
-              ></video>
-            </div>
-            <div className="project-grid-child"></div>
-            <div className="project-grid-child">
-              <video
-                playsInline
-                autoPlay
-                muted
-                loop
-                src="https://framerusercontent.com/assets/a3xJFwdaGBP75olNxNm9TZYbU.mp4"
-              ></video>
-            </div>
-            <div className="project-grid-child"></div>
-            <div className="project-grid-child"></div>
-            <div className="project-grid-child"></div>
-            <div className="project-grid-child">
-              <video
-                autoPlay
-                playsInline
-                muted
-                loop
-                src="https://framerusercontent.com/assets/MkDejLa7j6VLm8cU771sJWNj0.mp4"
-              ></video>
-            </div>
-            <div className="project-grid-child">
-              <video
-                playsInline
-                muted
-                loop
-                autoPlay
-                src="https://framerusercontent.com/assets/HSSFbHDNoC0IX39CvBoEVwMYk.mp4"
-              ></video>
+        {workData.map((work) => (
+          <div className="project-container">
+            <h1>
+              {work.projectName}{" "}
+              <span style={{ color: "gray" }}>, {work.year}</span>
+              <span
+                className="expand-project"
+                ref={expandProjectRef}
+                onClick={() => setToggleProject(!toggleProject)}
+              >
+                +
+              </span>
+            </h1>
+            <div className="project-grid">
+              <div className="project-summary" ref={projectSummaryRef}>
+                <p>{work.projectSummary}</p>
+              </div>
+              <div className="project-grid-child">
+                <video
+                  playsInline
+                  autoPlay
+                  muted
+                  loop
+                  src={work.video[0]}
+                ></video>
+              </div>
+              <div className="project-grid-child"></div>
+              <div className="project-grid-child">
+                <video
+                  playsInline
+                  autoPlay
+                  muted
+                  loop
+                  src={work.video[1]}
+                ></video>
+              </div>
+              <div className="project-grid-child"></div>
+              <div className="project-grid-child"></div>
+              <div className="project-grid-child"></div>
+              <div className="project-grid-child">
+                <video
+                  autoPlay
+                  playsInline
+                  muted
+                  loop
+                  src={work.video[2]}
+                ></video>
+              </div>
+              <div className="project-grid-child">
+                <video
+                  playsInline
+                  muted
+                  loop
+                  autoPlay
+                  src={work.video[3]}
+                ></video>
+              </div>
             </div>
           </div>
-        </div>
+        ))}
       </div>
     </>
   );

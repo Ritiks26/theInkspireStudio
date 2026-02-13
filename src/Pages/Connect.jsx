@@ -39,10 +39,6 @@ export function Connect() {
         y: "40",
       });
 
-      gsap.set(".via-whatsapp", {
-        opacity: 0,
-      });
-
       gsap.set(".enquiry-address-grid", {
         opacity: 0,
       });
@@ -52,14 +48,9 @@ export function Connect() {
         y: "0",
         duration: 1,
         ease: "power4.inOut",
-      })
-        .to(".via-whatsapp", {
-          opacity: 1,
-          ease: "power4.inOut",
-        })
-        .to(".enquiry-address-grid", {
-          opacity: 1,
-        });
+      }).to(".enquiry-address-grid", {
+        opacity: 1,
+      });
     });
   });
 
@@ -67,10 +58,8 @@ export function Connect() {
     <>
       <div className="connect-container">
         <div className="connect-section">
-          <h1>Contact us</h1>
-          <div className="via-whatsapp">
-            <p>Chat via WhatsApp</p>
-          </div>
+          <h1>Ready to build?</h1>
+          <h1>Lets get to work.</h1>
         </div>
 
         <div className="contact-container">

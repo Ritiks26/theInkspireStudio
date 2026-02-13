@@ -77,6 +77,7 @@ import { Work } from "./Pages/Work";
 import { Connect } from "./Pages/Connect";
 import { Footer } from "./components/Footer";
 import { NotFound } from "./components/NotFound";
+import { Typography } from "./Pages/Typography";
 import "./App.css";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
@@ -131,6 +132,7 @@ export default function App() {
           <Route path="/agency" element={<Agency />} />
           <Route path="/work" element={<Work />} />
           <Route path="/connect" element={<Connect />} />
+          <Route path="/typo" element={<Typography />}></Route>
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

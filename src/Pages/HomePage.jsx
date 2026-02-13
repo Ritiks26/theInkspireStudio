@@ -2,7 +2,6 @@ import { HeroSection } from "./HeroSection";
 import { AboutPage } from "./AboutPage";
 import { Service } from "./Service";
 import { Typography } from "./Typography";
-import { Scroll } from "./Scroll";
 import "./HomePage.css";
 
 export function HomePage() {
@@ -12,7 +11,7 @@ export function HomePage() {
       <HeroSection />
       <AboutPage />
       <Service />
-      {/* <Scroll /> */}
+      <Typography />
     </>
   );
 }

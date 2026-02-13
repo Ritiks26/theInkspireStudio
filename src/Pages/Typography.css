@@ -3,185 +3,159 @@
   font-family: "almarena";
   height: 100vh;
   width: 100%;
-  overflow: hidden;
+  padding: 0 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.content-container {
-  width: 100%;
+.typography-child {
   height: 100%;
-  padding: 1rem;
-
-  .typography-heading {
-    margin-top: 0.5rem;
-    padding: 0;
-    font-weight: 500;
-    font-size: clamp(2rem, 5vw, 2.75rem);
-    color: var(--font-black);
-    text-align: center;
-    font-family: var(--font-3);
-  }
-}
-
-.design-container-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.5rem;
-  height: calc(100% - 42px);
   width: 100%;
-  padding: 1rem 0;
 
-  @media (width < 640px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
-
-.container {
-  display: flex;
-  align-items: start;
-  gap: 1rem;
-  font-family: var(--font-3);
-}
-
-.sample-font {
-  height: fit-content;
-  width: fit-content;
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: start;
-  padding: 1rem;
-  border-radius: 0.5rem;
+  gap: 0.5rem;
+}
 
-  background-image: linear-gradient(90deg, red, black, black);
+.fonts-container {
+  height: max-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+
+.font-child {
+  position: relative;
+  height: max-content;
+  width: 100%;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  cursor: pointer;
+  padding: 0 0.25rem;
+
+  .font-wrapper {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    background-color: #00000052;
+    backdrop-filter: blur(0.25rem);
+    bottom: 0;
+    left: 0;
+    height: 0%;
+    width: 100%;
+    transition: all 0.5s cubic-bezier(0.213, 0.748, 0.493, 0.881);
+    overflow: hidden;
+
+    p {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: var(--font-white);
+      font-style: normal;
+      font-size: 2.5rem;
+      font-family: var(--font-2);
+    }
+
+    img {
+      height: 60px;
+      max-height: 60px;
+      width: 120px;
+      max-width: 120px;
+      display: block;
+      border-radius: 2rem;
+    }
+
+    .wrapper-container {
+      p {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  &:nth-child(2) {
+    .font-name {
+      font-family: "almarena";
+    }
+    .font-wrapper {
+      p {
+        font-family: "almarena";
+        font-weight: 300;
+      }
+    }
+  }
+
+  &:nth-child(3) {
+    .font-name {
+      font-family: var(--font-1);
+    }
+
+    .font-wrapper {
+      p {
+        font-family: var(--font-1);
+        font-weight: 300;
+      }
+    }
+  }
+
+  &:nth-child(4) {
+    .font-name {
+      font-family: var(--font-3);
+    }
+    .font-wrapper {
+      p {
+        font-family: var(--font-3);
+        font-weight: 300;
+      }
+    }
+  }
+
+  &:hover .font-wrapper p {
+    opacity: 1;
+  }
 
   h1 {
-    color: var(--font-white);
-    font-size: 4rem;
-  }
-  p {
-    color: var(--font-white);
-  }
-}
-
-.design-container-child {
-  height: 100%;
-  width: 100%;
-  border-radius: 0.75rem;
-}
-
-.sample-font-others {
-  display: flex;
-  justify-content: space-around;
-  gap: 0.5rem;
-  width: 100%;
-
-  .general-sans,
-  .satoshi-font {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: space-between;
-    padding: 0.75rem;
-    height: fit-content;
-    width: 50%;
-    background-color: #9cb2da48;
-    box-shadow: inset 0rem 0rem 2rem white;
-    backdrop-filter: blur(1rem);
-    border-radius: 0.75rem;
-
-    p {
-      color: var(--font-black);
-    }
-
-    h1 {
-      color: black;
-      font-size: clamp(2rem, 1.1429rem + 4.2857vw, 5rem);
-      font-weight: 600;
-    }
-
-    .all-char {
-      font-size: 0.85rem;
-      color: var(--font-black);
-    }
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-size: clamp(1.75rem, 0.8214rem + 4.6429vw, 5rem);
+    font-weight: 300;
+    text-transform: uppercase;
   }
 
-  .general-sans {
-    font-family: var(--font-1);
-  }
-  .satoshi-font {
+  .satoshi,
+  .font-name {
     font-family: var(--font-2);
   }
-}
-
-.content {
-  margin: 0.5rem 0;
-  padding: 0.75rem;
-  height: fit-content;
-  width: 100%;
-  border-radius: 0.75rem;
 
   p {
-    color: rgb(87, 87, 87);
-    line-height: 1.25;
+    font-family: var(--font-3);
+    font-size: clamp(0.85rem, 0.7357rem + 0.5714vw, 1.25rem);
+    font-weight: 300;
+    font-style: italic;
+    margin-left: 0.5rem;
   }
 }
 
-.color-container {
-  display: flex;
-  /* flex-direction: column; */
-  padding: 0.25rem 0;
-  gap: 0.25rem;
-  height: 100%;
-  width: 100%;
-}
-
-.font-color-palatte {
-  display: flex;
-  gap: 0.25rem;
+.closing-typography {
   height: 100%;
   width: 100%;
 
-  .yellow,
-  .whitesmoke,
-  .mate-black,
-  .lightgray {
-    padding: 0.75rem;
+  .left-side-typo {
     display: flex;
-    align-items: end;
-    justify-content: end;
+    align-items: center;
     height: 100%;
-    width: 50%;
-    cursor: pointer;
+    width: 40%;
 
-    p {
-      color: var(--font-black);
-      font-size: 1.1rem;
-      font-weight: 300;
+    @media (width < 768px) {
+      width: 100%;
     }
-  }
 
-  .yellow {
-    background-color: #000;
     p {
-      color: white;
-    }
-  }
-
-  .whitesmoke {
-    background-color: whitesmoke;
-  }
-
-  .mate-black {
-    background-color: #333;
-    p {
-      color: var(--font-white);
-    }
-  }
-
-  .lightgray {
-    background-color: lightgray;
-    p {
-      color: var(--font-black);
+      font-family: var(--font-2);
     }
   }
 }

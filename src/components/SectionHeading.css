@@ -2,6 +2,7 @@
   font-family: var(--font-2);
   font-weight: 500;
   margin: 1rem 0;
+  font-size: clamp(0.85rem, 0.8071rem + 0.2143vw, 1rem);
   li {
     position: relative;
     padding-left: 1rem;

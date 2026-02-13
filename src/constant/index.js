@@ -251,3 +251,59 @@ export const address = [
     phone: "+1 484 224 2972",
   },
 ];
+
+export const workData = [
+  {
+    projectName: "polestar",
+    year: "2025",
+    projectSummary:
+      "The Polestar series of electric cars represents a true Scandinavian piece of art — minimal, functional, and purpose-driven in every detail. The design language is clean yet bold, blending innovation with simplicity in a way that feels                 both modern and timeless. Inspired by this philosophy, I wanted                 to reflect the same balance of aesthetics and performance in the                 digital experience. Today, most automotive websites tend to                 follow similar structures and interaction patterns. While they    are functional, they often lack a distinct identity or immersive storytelling. I saw this as an opportunity to experiment and push beyond conventional layouts to create a more engaging and visually powerful user experience. This project focuses crafting a high-end digital environment powered by CGI and  Unreal Engine. By leveraging real-time rendering capabilities.",
+
+    video: [
+      "https://framerusercontent.com/assets/Qrk0elN6Z8hA6jP8kW616C0MCWA.mp4",
+      "https://framerusercontent.com/assets/a3xJFwdaGBP75olNxNm9TZYbU.mp4",
+      "https://framerusercontent.com/assets/MkDejLa7j6VLm8cU771sJWNj0.mp4",
+      "https://framerusercontent.com/assets/HSSFbHDNoC0IX39CvBoEVwMYk.mp4",
+    ],
+  },
+  {
+    projectName: "polestar",
+    year: "2025",
+    projectSummary:
+      "The Polestar series of electric cars represents a true Scandinavian piece of art — minimal, functional, and purpose-driven in every detail. The design language is clean yet bold, blending innovation with simplicity in a way that feels                 both modern and timeless. Inspired by this philosophy, I wanted                 to reflect the same balance of aesthetics and performance in the                 digital experience. Today, most automotive websites tend to                 follow similar structures and interaction patterns. While they    are functional, they often lack a distinct identity or immersive storytelling. I saw this as an opportunity to experiment and push beyond conventional layouts to create a more engaging and visually powerful user experience. This project focuses crafting a high-end digital environment powered by CGI and  Unreal Engine. By leveraging real-time rendering capabilities.",
+
+    video: [
+      "https://framerusercontent.com/assets/Qrk0elN6Z8hA6jP8kW616C0MCWA.mp4",
+      "https://framerusercontent.com/assets/a3xJFwdaGBP75olNxNm9TZYbU.mp4",
+      "https://framerusercontent.com/assets/MkDejLa7j6VLm8cU771sJWNj0.mp4",
+      "https://framerusercontent.com/assets/HSSFbHDNoC0IX39CvBoEVwMYk.mp4",
+    ],
+  },
+];
+
+export const typography = [
+  {
+    fontName: "satoshi",
+    wrapperText: "Aa",
+    fontWeight: "light",
+    wrapperContent: "Typography shapes how users feel about a brand",
+  },
+  {
+    fontName: "almarena",
+    wrapperText: "Aa",
+    fontWeight: "semibold",
+    wrapperContent: "Good typography feels effortless and easy to scan.",
+  },
+  {
+    fontName: "general sans",
+    wrapperText: "Aa",
+    fontWeight: "light",
+    wrapperContent: "Proper alignment makes the layout look organized.",
+  },
+  {
+    fontName: "clash display",
+    wrapperText: "Aa",
+    fontWeight: "regular",
+    wrapperContent: "Strong headings create visual direction.",
+  },
+];

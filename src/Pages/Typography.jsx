@@ -1,90 +1,165 @@
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import CustomEase from "gsap/CustomEase";
+import { ImageComp } from "./Agency";
+import { SectionHeading } from "../components/SectionHeading";
+import { typography } from "../constant";
+import imageCompo from "../assets/pic/hero-pic-2.jpeg";
 import "./Typography.css";
+
+gsap.registerPlugin(CustomEase);
 
 export function Typography() {
   useGSAP(() => {
-    const odd = gsap.utils.toArray(".odd");
-    const even = gsap.utils.toArray(".even");
+    if (window.innerWidth >= 1024) {
+      const fontChild = gsap.utils.toArray(".font-child");
 
-    const tl = gsap.timeline({
-      repeat: -1,
-      yoyo: true,
-      defaults: {
-        duration: 1,
-        ease: "power1.inOut",
-      },
-    });
+      fontChild.forEach((container) => {
+        const fontWrapper = container.querySelectorAll(".font-wrapper");
 
-    tl.to(even, {
-      height: "100%",
-    }).to(
-      odd,
-      {
-        height: "80%",
-      },
-      "<",
-    );
+        const wrapperText = container.querySelectorAll(".wrapper-text");
+
+        const charEx = container.querySelectorAll(".chars-example p");
+
+        const imageElem = container.querySelectorAll(".chars-example img");
+
+        const wrapperContainer =
+          container.querySelectorAll(".wrapper-container");
+
+        gsap.set(wrapperText, {
+          opacity: 0,
+          y: 100,
+        });
+
+        gsap.set(charEx, {
+          opacity: 0,
+          y: 100,
+        });
+
+        gsap.set(imageElem, {
+          opacity: 0,
+          y: 100,
+        });
+
+        gsap.set(wrapperContainer, {
+          opacity: 0,
+          y: 100,
+        });
+
+        container.addEventListener("mouseenter", () => {
+          gsap.to(fontWrapper, {
+            height: "100%",
+            ease: CustomEase.create(
+              "custom",
+              "M0,0 C0.064,0.964 0.353,0.913 1,1 ",
+            ),
+          });
+
+          gsap.to(wrapperText, {
+            opacity: 1,
+            y: 0,
+          });
+
+          gsap.to(charEx, {
+            opacity: 1,
+            y: 0,
+          });
+
+          gsap.to(imageElem, {
+            opacity: 1,
+            y: 0,
+          });
+
+          gsap.to(wrapperContainer, {
+            opacity: 1,
+            y: 0,
+          });
+        });
+
+        container.addEventListener("mouseleave", () => {
+          gsap.to(fontWrapper, {
+            height: "0%",
+          });
+
+          gsap.to(wrapperText, {
+            opacity: 0,
+            y: 100,
+          });
+
+          gsap.to(charEx, {
+            opacity: 0,
+            y: 100,
+          });
+
+          gsap.to(imageElem, {
+            opacity: 0,
+            y: 100,
+          });
+
+          gsap.to(wrapperContainer, {
+            opacity: 0,
+            y: 100,
+          });
+        });
+      });
+    }
   });
-
   return (
     <>
       <div className="typography-container">
-        <div className="effect-container">
-          <div className="background odd"></div>
-          <div className="background even"></div>
-          <div className="background odd"></div>
-          <div className="background even"></div>
-          <div className="background odd"></div>
-          <div className="background even"></div>
-          <div className="background odd"></div>
-          <div className="background even"></div>
-          <div className="background odd"></div>
-          <div className="background even"></div>
-        </div>
-        <div className="content-container">
-          <h1 className="typography-heading">typography & colors</h1>
+        <SectionHeading heading={"typography & colors"} />
+        <div className="typography-child">
+          <div className="fonts-container">
+            {typography.map((typo) => (
+              <>
+                <div className="font-child">
+                  <h1 className="font-name">{typo.fontName}</h1>
+                  <p>{typo.fontWeight}</p>
+                  <div className="font-wrapper">
+                    <p className="wrapper-text">{typo.wrapperText}</p>
 
-          <div className="design-container-grid">
-            <div className="container">
-              <div className="sample-font">
-                <h1>Aa</h1>
-              </div>
-              <p>clash display</p>
-            </div>
+                    <div className="chars-example">
+                      <p>
+                        Bb{" "}
+                        <ImageComp
+                          img={
+                            "https://images.unsplash.com/photo-1499428665502-503f6c608263?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTIxfHxkYXJrfGVufDB8fDB8fHww"
+                          }
+                        />
+                      </p>
+                    </div>
+                    <div className="chars-example">
+                      <p>01</p>
+                    </div>
+                    <div className="chars-example">
+                      <p>23</p>
+                    </div>
+                    <div className="chars-example">
+                      <p>45</p>
+                    </div>
+                    <div className="chars-example">
+                      <p>67</p>
+                    </div>
+                    <div className="chars-example">
+                      <p>89</p>
+                    </div>
 
-            <div className="design-container-child">
-              {" "}
-              <div className="color-container">
-                <div className="font-color-palatte">
-                  <div
-                    className="yellow"
-                    onClick={() => navigator.clipboard.writeText("#000")}
-                  >
-                    <p>#000</p>
-                  </div>
-                  <div
-                    className="whitesmoke"
-                    onClick={() => navigator.clipboard.writeText("whitesmoke")}
-                  >
-                    <p>whitesmoke</p>
+                    <div className="wrapper-container">
+                      <p>{typo.wrapperContent}</p>
+                    </div>
                   </div>
                 </div>
-                <div className="font-color-palatte">
-                  <div
-                    className="mate-black"
-                    onClick={() => navigator.clipboard.writeText("#333")}
-                  >
-                    <p>#333</p>
-                  </div>
-                  <div
-                    className="lightgray"
-                    onClick={() => navigator.clipboard.writeText("lightgray")}
-                  >
-                    <p>lightgray</p>
-                  </div>
-                </div>
-              </div>
+              </>
+            ))}
+          </div>
+          <div className="closing-typography">
+            <div className="left-side-typo">
+              <p>
+                Satoshi and Almarea were chosen to create a clear balance
+                between character and structure. Satoshi adds personality
+                through expressive, humanist forms, while Almarena provides
+                clarity, consistency, and strong readability across interfaces.
+              </p>
             </div>
           </div>
         </div>

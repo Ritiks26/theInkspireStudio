@@ -144,11 +144,11 @@ export function Agency() {
         yPercent: 100,
       });
 
-      gsap.to(splitHeading.lines, {
+      const tl = gsap.timeline({ delay: 0.75 });
+
+      tl.to(splitHeading.lines, {
         clipPath: "inset(0% 0% 0% 0%)",
         yPercent: 0,
-        duration: 1,
-        ease: "bpEase",
       });
 
       gsap.to(splitMessageHeading.lines, {
@@ -261,25 +261,52 @@ export function Agency() {
 
       const exportCount = container.querySelectorAll(".export-count");
 
-      const agencyContent = container.querySelectorAll(".planning-container");
+      const agencyContainerHeading = container.querySelectorAll(
+        ".planning-container-heading",
+      );
+
+      const agencyContainerContent = container.querySelectorAll(
+        ".planning-container-content",
+      );
 
       document.fonts.ready.then(() => {
         const splitExportCount = SplitText.create(exportCount, {
           type: "chars, words, lines",
         });
 
-        const splitAgencyContent = SplitText.create(agencyContent, {
-          type: "chars, words, lines",
-        });
+        const splitagencyContainerHeading = SplitText.create(
+          agencyContainerHeading,
+          {
+            type: "chars, words, lines",
+          },
+        );
+
+        const splitagencyContainerContent = SplitText.create(
+          agencyContainerContent,
+          {
+            type: "chars, words, lines",
+          },
+        );
 
         gsap.set(splitExportCount.chars, {
           clipPath: "inset(0% 0% 100% 0%)",
           yPercent: 100,
         });
 
-        gsap.set(splitAgencyContent.lines, {
+        gsap.set(splitagencyContainerHeading.lines, {
           clipPath: "inset(0% 0% 100% 0%)",
           yPercent: 80,
+        });
+
+        gsap.set(splitagencyContainerContent.lines, {
+          clipPath: "inset(0% 0% 100% 0%)",
+          yPercent: 80,
+        });
+
+        gsap.set(weProvide, {
+          display: "none",
+          yPercent: 100,
+          opacity: 0,
         });
 
         const tl = gsap.timeline({
@@ -296,12 +323,27 @@ export function Agency() {
           ease: "bpEase",
           stagger: 0.12,
           duration: 0.75,
-        }).to(splitAgencyContent.lines, {
-          clipPath: "inset(0% 0% 0% 0%)",
-          yPercent: 0,
-          ease: "bpEase",
-          duration: 0.75,
-        });
+        })
+          .to(splitagencyContainerHeading.lines, {
+            clipPath: "inset(0% 0% 0% 0%)",
+            yPercent: 0,
+            ease: "bpEase",
+            duration: 0.75,
+          })
+          .to(splitagencyContainerContent.lines, {
+            clipPath: "inset(0% 0% 0% 0%)",
+            yPercent: 0,
+            ease: "bpEase",
+            duration: 0.75,
+          })
+          .to(weProvide, {
+            display: "flex",
+            yPercent: 0,
+            opacity: 1,
+            ease: "bpEase",
+            duration: 0.75,
+            stagger: 0.12,
+          });
       });
 
       weProvide.forEach((provide, i) => {
@@ -337,7 +379,7 @@ export function Agency() {
       <title>THE INKSPIRE STUDIO | AGENCY</title>
       <div className="agency-container">
         <div className="agency-section">
-          <h1>Partnership on demand.</h1>
+          <h1>Innovation Meets Strategy</h1>
         </div>
         <div className="our-message-container">
           <p className="message-heading">Dear Future Partner</p>
@@ -420,8 +462,12 @@ export function Agency() {
                     <h1>{work.exportCount}</h1>
                   </div>
                   <div className="planning-container">
-                    <p>{work.exportType}</p>
-                    <p>{work.exportContent}</p>
+                    <p className="planning-container-heading">
+                      {work.exportType}
+                    </p>
+                    <p className="planning-container-content">
+                      {work.exportContent}
+                    </p>
                   </div>
                 </div>
                 <div className="export-grid-child">

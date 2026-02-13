@@ -481,7 +481,7 @@ export function HeroSection() {
         </div>
         <div className="hero-section">
           <div className="hero-content">
-            <div className="left-hero">HUMAN THINKERS</div>
+            <div className="left-hero">Visionary Thinkers</div>
             <div className="image-wrapper" ref={imageWrapperRef}>
               <img className="hero-image" src={heroPic1} alt="" />
               <img className="hero-image" src={heroPic2} alt="" />
@@ -490,7 +490,7 @@ export function HeroSection() {
               <img className="hero-image" src={heroPic5} alt="" />
               <img className="hero-image" src={heroPic6} alt="" />
             </div>
-            <div className="right-hero">DIGITAL MAKER</div>
+            <div className="right-hero">Experience Builders</div>
           </div>
 
           <div className="hero-heading">
