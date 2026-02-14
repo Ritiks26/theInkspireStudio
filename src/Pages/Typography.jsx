@@ -1,6 +1,7 @@
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import CustomEase from "gsap/CustomEase";
+import { CustomEase } from "gsap/CustomEase";
+import { SplitText } from "gsap/SplitText";
 import { ImageComp } from "./Agency";
 import { useRef } from "react";
 import { SectionHeading } from "../components/SectionHeading";
@@ -9,7 +10,7 @@ import imageCompo from "../assets/pic/hero-pic-2.jpeg";
 import imageCompoSecond from "../assets/pic/hero-pic-3.jpeg";
 import "./Typography.css";
 
-gsap.registerPlugin(CustomEase);
+gsap.registerPlugin(CustomEase, SplitText);
 
 CustomEase.create("bpEase", "M0,0 C0.25,0.1 0.35,1 1,1");
 
@@ -162,11 +163,46 @@ export function Typography() {
         "<",
       );
     });
+
+    document.fonts.ready.then(() => {
+      const splitLeftSideTypo = SplitText.create(".left-side-typo p", {
+        type: "chars, words, lines",
+      });
+
+      gsap.set(splitLeftSideTypo.lines, {
+        clipPath: "inset(0% 0% 100% 0)",
+        yPercent: 40,
+      });
+
+      gsap.set(".color", {
+        opacity: 0,
+        yPercent: 100,
+      });
+
+      const t2 = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".closing-typography",
+          start: "top 65%",
+        },
+      });
+
+      t2.to(splitLeftSideTypo.lines, {
+        clipPath: "inset(0% 0% 0% 0%)",
+        yPercent: 0,
+        ease: "bpEase",
+        duration: 1,
+      }).to(".color", {
+        opacity: 1,
+        yPercent: 0,
+      });
+    });
   }, []);
   return (
     <>
       <div className="typography-container" ref={typographyContainerRef}>
-        <SectionHeading heading={"typography & colors"} />
+        <div className="typo-heading">
+          <SectionHeading heading={"typography & colors"} />
+        </div>
         <div className="typography-child">
           <div className="fonts-container">
             {typography.map((typo) => (
@@ -229,6 +265,32 @@ export function Typography() {
                 through expressive, humanist forms, while Almarena provides
                 clarity, consistency, and strong readability across interfaces.
               </p>
+
+              <p>PICK THE BEST COLOR PALATTE</p>
+            </div>
+
+            <div className="color-palatte">
+              <div className="color white">
+                01
+                <div className="color-code">
+                  <p>COLOR</p>
+                  <p>WHITE</p>
+                </div>
+              </div>
+              <div className="color gray">
+                02
+                <div className="color-code">
+                  <p>COLOR</p>
+                  <p>GRAY</p>
+                </div>
+              </div>
+              <div className="color whitesmoke">
+                03
+                <div className="color-code">
+                  <p>COLOR</p>
+                  <p>WHITESMOKE</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
