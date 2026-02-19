@@ -53,7 +53,6 @@ export function Agency() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: container,
-        markers: true,
         scrub: true,
       },
     });
