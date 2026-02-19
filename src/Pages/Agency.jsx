@@ -50,6 +50,19 @@ export function Agency() {
       return scrollAvailable;
     };
 
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: container,
+        markers: true,
+        scrub: true,
+      },
+    });
+
+    tl.to(".client-heading", {
+      opacity: 0,
+      duration: 0.05,
+    });
+
     gsap.to(grid, {
       y: () => -getGridHeight(),
       ease: "none",
@@ -83,12 +96,12 @@ export function Agency() {
       });
     };
 
+    ScrollTrigger.refresh();
+
     imageRef.current.forEach((img, i) => {
       img.addEventListener("mouseover", () => mouseOver(i));
       img.addEventListener("mouseleave", mouseLeave);
     });
-
-    ScrollTrigger.refresh();
 
     return () => {
       imageRef.current.forEach((img, i) => {
@@ -304,7 +317,6 @@ export function Agency() {
         });
 
         gsap.set(weProvide, {
-          display: "none",
           yPercent: 100,
           opacity: 0,
         });
@@ -494,7 +506,9 @@ export function Agency() {
         </div>
 
         <div className="clients-container" ref={clientsContainerRef}>
-          <h1 className="agency-heading">Our Clients</h1>
+          <div className="client-heading">
+            <SectionHeading heading={"our clients"} />
+          </div>
           <div className="clients-work-grid">
             <div className="clients-work-child">
               <div className="client-work">

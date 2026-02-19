@@ -121,12 +121,16 @@ export function AboutPage() {
               ease: "unveil",
               duration: 1,
             })
-            .to(splitHighHeading.lines, {
-              clipPath: "inset(0% 0% 0% 0%)",
-              y: 0,
-              ease: "unveil",
-              duration: 1,
-            });
+            .to(
+              splitHighHeading.lines,
+              {
+                clipPath: "inset(0% 0% 0% 0%)",
+                y: 0,
+                ease: "unveil",
+                duration: 1,
+              },
+              "<",
+            );
         });
       });
     },

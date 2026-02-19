@@ -78,10 +78,14 @@ export function Service() {
           },
         });
 
-        tl.to(videoWrapper, {
-          height: "80vh",
-          width: "26%",
+        tl.to(".service-heading", {
+          opacity: 0,
+          duration: 0.05,
         })
+          .to(videoWrapper, {
+            height: "80vh",
+            width: "26%",
+          })
           .to(summaries, {
             display: "flex",
           })
@@ -179,7 +183,9 @@ export function Service() {
     <>
       {serviceWork.map((work, i) => (
         <div key={i} className="service-container" ref={serviceContainerRef}>
-          {work.heading && <SectionHeading heading={work.heading} />}
+          <div className="service-heading">
+            {work.heading && <SectionHeading heading={work.heading} />}
+          </div>
           <div className="brand-heading">
             {work.brandHeading && <p>{work.brandHeading}</p>}
           </div>
